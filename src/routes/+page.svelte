@@ -11,29 +11,17 @@
 		</hgroup>
 		<form>
 			<label><input type="radio" name="component" />X-ray Instrument</label>
-
 			<label><input type="radio" name="component" />Battery Packs</label>
-
 			<label><input type="radio" name="component" />Star Tracker Module</label>
-
 			<label><input type="radio" name="component" />Bus Subsystem Mounting Rack</label>
-
 			<label><input type="radio" name="component" />Dawn 4U Cubedrive</label>
-
 			<label><input type="radio" name="component" />S-Band Antenna</label>
-
 			<label><input type="radio" name="component" />GNSS Receiver</label>
-
 			<label><input type="radio" name="component" />Sun Sensor</label>
-
 			<label><input type="radio" name="component" />Instrument Electronics Module</label>
-
 			<label><input type="radio" name="component" />Magnetometers</label>
-
 			<label><input type="radio" name="component" />SADM</label>
-
 			<label><input type="radio" name="component" />Reaction Wheel Module</label>
-
 			<label><input type="radio" name="component" />OBC, TCM, Inertial Measurement Unit</label>
 		</form>
 	</section>
@@ -47,6 +35,8 @@
 	}
 
 	main {
+		--accent: hsl(13, 82%, 56%);
+
 		display: grid;
 		justify-content: end;
 		padding: 2rem;
@@ -91,12 +81,14 @@
 			backdrop-filter: blur(10px);
 			transition: 0.2s;
 
-			&:hover {
-				border: 1px solid blue;
+			&:hover,
+			&:focus {
+				border: 1px solid var(--accent);
 			}
 
 			&:has(input[type='radio']:checked) {
-				background-color: blue;
+				background-color: var(--accent);
+				border: 1px solid var(--accent);
 			}
 		}
 
