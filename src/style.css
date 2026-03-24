@@ -80,7 +80,7 @@ main {
 		border-radius: 4px;
 		padding: 0.75em;
 		text-transform: uppercase;
-		backdrop-filter: blur(10px);
+		background-color: #00000054;
 		transition: 0.2s;
 
 		&:hover,
