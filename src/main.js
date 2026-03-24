@@ -9,40 +9,33 @@ fetch("/src/assets/infoText.json")
     fetchedData = data;
   });
 
-// select all input fields
+// select all HTML elements
 const inputFields = document.querySelectorAll('input[type="radio"]');
-const infoBoxTitle = document.querySelector(".info-box h3");
-const infoBoxText = document.querySelector(".info-box p");
+const infoTitle = document.querySelector(".info-box h3");
+const infoText = document.querySelector(".info-box p");
 
-// eventlistener on each input
 inputFields.forEach((input) => {
   input.addEventListener("click", (e) => {
-    // get input id from the clicked input field
+    // get clicked element id and use custom function for finding the matching title and description
     let inputId = e.currentTarget;
-
-    // get json object with matching id
     let infoBoxData = getMatchingData(inputId);
-    let newTitle = infoBoxData[0];
-    let newText = infoBoxData[1];
 
-    infoBoxTitle.textContent = newTitle;
-    infoBoxText.textContent = newText;
-
-    console.log(getMatchingData(inputId));
+    // change title and description
+    infoTitle.textContent = infoBoxData[0];
+    infoText.textContent = infoBoxData[1];
   });
 });
 
-function getMatchingData(item) {
-  // get id of the HTML element
-  let itemId = item.id;
-  // search for the id inside the JSON data
+// A function that selects the id of an element, and searches the JSON for a matching id.
+// then stores the title and description of the found JSON object into a new list
+function getMatchingData(element) {
+  let itemId = element.id;
+
   let jsonMatch = fetchedData.find((i) => i.id === itemId);
 
   let infoDetails = [];
   infoDetails.push(jsonMatch.title);
   infoDetails.push(jsonMatch.description);
-  //   console.log(infoDetails)
 
-  // return json object with matching id
   return infoDetails;
 }
