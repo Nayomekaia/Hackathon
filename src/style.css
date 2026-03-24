@@ -6,12 +6,15 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	overflow: hidden;
 	height: 100%;
 }
 
 canvas {
 	display: block;
+}
+
+body {
+	background-image: url("/src/assets/galaxy.jpg");
 }
 
 main {
@@ -21,7 +24,6 @@ main {
 	justify-content: end;
 	padding: 2rem;
 	font-family: "Varela Round", sans-serif;
-	background-image: url("/src/assets/galaxy.jpg");
 }
 
 .component-picker {
