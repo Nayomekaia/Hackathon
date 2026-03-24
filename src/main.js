@@ -6,6 +6,7 @@ import { createRenderer } from './setup/renderer.js';
 import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
 import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
+import { createStars } from './components/objects/star.js';
 
 // scene setup
 const scene = createScene();
@@ -20,6 +21,9 @@ createLights(scene);
 
 // laad satellite
 loadSatellite(scene);
+
+// add 300 stars to the scene
+createStars(300, scene);
 
 // resonsive
 window.addEventListener('resize', () => {
