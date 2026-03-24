@@ -50,20 +50,21 @@
 		display: grid;
 		justify-content: end;
 		padding: 2rem;
-		font-family: sans-serif;
+		font-family: 'Varela Round', sans-serif;
 		background-image: url('$lib/assets/galaxy.jpg');
 	}
 
 	.component-picker {
 		border: 1px solid white;
 		border-radius: 10px;
-		padding: 1em;
+		padding: 1.5em;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 1em;
+		gap: 1.5em;
 		backdrop-filter: blur(10px);
 		color: white;
+		background-color: #ececec1a;
 
 		hgroup {
 			width: 100%;
@@ -71,26 +72,32 @@
 		}
 
 		h2 {
-			font-family: 'Varela Round', sans-serif;
 			font-size: 1.5rem;
 			text-transform: uppercase;
+			letter-spacing: -0.5px;
 		}
 
 		form {
-			gap: 0.5em;
 			display: flex;
 			flex-direction: column;
+			gap: 0.75em;
 		}
 
 		label {
 			border: 1px solid white;
 			border-radius: 4px;
-			padding: 0.5em;
+			padding: 0.75em;
 			text-transform: uppercase;
-		}
+			backdrop-filter: blur(10px);
+			transition: 0.2s;
 
-		label:has(input[type='radio']:checked) {
-			border: 1px solid blue;
+			&:hover {
+				border: 1px solid blue;
+			}
+
+			&:has(input[type='radio']:checked) {
+				background-color: blue;
+			}
 		}
 
 		input[type='radio'] {
