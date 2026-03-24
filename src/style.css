@@ -17,6 +17,7 @@ body {
 body {
 	--accent: hsl(13, 82%, 56%);
 	--text-color: white;
+	--border-color: rgb(120, 120, 120);
 	--background-components: #ececec1a;
 	--background-blur: blur(10px);
 	--radius: 10px;
@@ -106,13 +107,11 @@ main {
 .info-box {
 	width: min-content;
 	padding: 1.5rem;
-	position: absolute;
-
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
 	background-color: var(--background-components);
 	border-radius: var(--radius);
-	border: 1px solid var(--text-color);
+	border: 1px solid var(--border-color);
 
 	&:hover,
 	&:focus {
@@ -120,16 +119,57 @@ main {
 	}
 
 	p {
+		margin-top: 1em;
 		width: 40ch;
 	}
 }
 
-.hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
+.logo {
+	height: 100px;
+	width: 100px;
+}
+
+.wrapper {
 	position: absolute;
-	white-space: nowrap;
-	width: 1px;
+	
+	h3 {
+		text-transform: uppercase;
+	}
+}
+
+.container {
+	position: absolute;
+	bottom: 2rem;
+	width: 100%;
+	pointer-events: none;
+	opacity: 1;
+	transition: opacity 0.8s ease;
+
+	p {
+		color: var(--text-color);
+		text-align: center;
+	}
+}
+  
+  .container.hide {
+	opacity: 0;
+	pointer-events: none;
+  }
+
+.scroll {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.9rem;
+	color: var(--text-color);
+	text-transform: uppercase;
+}
+
+.drag {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	pointer-events: auto;
+	text-transform: uppercase;
 }
