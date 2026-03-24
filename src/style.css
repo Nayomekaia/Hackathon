@@ -8,16 +8,15 @@ body {
 	overflow: hidden;
 	height: 100%;
 	box-sizing: border-box;
-	height: 100%;
+}
+
+body {
+	background-image: url("/src/assets/galaxy.jpg");
 }
 
 canvas {
 	display: block;
 	position: absolute;
-}
-
-body {
-	background-image: url("/src/assets/galaxy.jpg");
 }
 
 main {
@@ -40,6 +39,8 @@ main {
 	backdrop-filter: blur(10px);
 	color: white;
 	background-color: #ececec1a;
+	max-height: 100%;
+	overflow-y: scroll;
 
 	hgroup {
 		width: 100%;
