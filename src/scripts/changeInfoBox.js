@@ -85,31 +85,29 @@ const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box p");
 const container = document.querySelector(".container");
 
-// event listener (maar 1 keer nodig)
+// update info bij form change
 inputFields.addEventListener("change", (e) => {
   const inputId = e.target;
   const infoBoxData = getMatchingData(inputId);
 
-  // check of er data is (voorkomt errors)
   if (!infoBoxData) return;
 
-  // change title and description
   infoTitle.textContent = infoBoxData.title;
   infoText.textContent = infoBoxData.description;
+});
 
-  // hide scroll & drag
+// 🔥 fade out bij klik
+document.addEventListener("click", () => {
   if (container) {
-    container.style.display = "none";
+    container.classList.add("hide");
   }
 });
 
 // function om data te matchen
 function getMatchingData(element) {
   const itemId = element.id;
-
   const jsonMatch = data.find((i) => i.id === itemId);
 
-  // als niks gevonden wordt → return null
   if (!jsonMatch) return null;
 
   return {
