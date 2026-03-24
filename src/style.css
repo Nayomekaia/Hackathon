@@ -102,4 +102,12 @@ main {
 	}
 }
 
+.logo {
+	height: 100px;
+	width: 100px;
+}
+
+.wrapper {
+	position: absolute;
+}
 	position: absolute;
