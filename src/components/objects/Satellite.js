@@ -44,3 +44,16 @@ object.traverse((child) => {
   );
 }
 
+// roteren in animatieloop
+export function rotateSatellite() {
+    if (satellite) {
+      // Langzaam draaien rond Y as
+      satellite.rotation.y += 0.0005;  
+  
+      // Kleine kanteling rond X as 
+      satellite.rotation.x += 0.0002;
+  
+      // kleine draai rond Z as 
+      satellite.rotation.z += 0.0001;
+    }
+  }
