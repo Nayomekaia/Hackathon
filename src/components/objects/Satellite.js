@@ -12,6 +12,18 @@ export function loadSatellite(scene) {
     (object) => {
       satellite = object;
 
+  // Laad de texture
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load('/textured_mesh.jpg'); 
+
+// fallback materiaal met texture
+object.traverse((child) => {
+  if (child.isMesh) {
+    child.material = new THREE.MeshStandardMaterial({
+      map: texture,
+    });
+  }
+});
       //voeg toe aan scene
       scene.add(object);
     },
