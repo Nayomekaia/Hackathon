@@ -130,6 +130,10 @@ main {
 
 .wrapper {
 	position: absolute;
+	
+	h3 {
+		text-transform: uppercase;
+	}
 }
 
 .container {
@@ -152,6 +156,7 @@ main {
 	align-items: center;
 	gap: 0.9rem;
 	color: var(--text-color);
+	text-transform: uppercase;
 }
 
 .drag {
@@ -160,4 +165,5 @@ main {
 	transform: translateX(-50%);
 	bottom: 0;
 	pointer-events: auto;
+	text-transform: uppercase;
 }
