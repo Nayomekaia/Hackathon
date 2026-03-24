@@ -119,6 +119,7 @@ main {
 	}
 
 	p {
+		margin-top: 1em;
 		width: 40ch;
 	}
 }
@@ -144,8 +145,6 @@ main {
 
 	p {
 		color: var(--text-color);
-		margin: 0.25rem 0 0 0;
-		font-size: 0.9rem;
 		text-align: center;
 	}
 }
