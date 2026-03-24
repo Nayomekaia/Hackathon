@@ -1,13 +1,16 @@
 // main.js
-
-import { createScene } from './setup/scene.js';
-import { createCamera } from './setup/camera.js';
-import { createRenderer } from './setup/renderer.js';
-import { createControls, updateControls } from './setup/controls.js';
-import { createLights } from './components/lights/lights.js';
-import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
-import './scripts/changeInfoBox.js';
-
+import TWEEN from "three/examples/jsm/libs/tween.module.js";
+import { createScene } from "./setup/scene.js";
+import { createCamera } from "./setup/camera.js";
+import { createRenderer } from "./setup/renderer.js";
+import { createControls, updateControls } from "./setup/controls.js";
+import { createLights } from "./components/lights/lights.js";
+import {
+	loadSatellite,
+	rotateSatellite,
+} from "./components/objects/Satellite.js";
+import { updateInfobox } from "./scripts/changeInfoBox.js";
+import { updateCamera } from "./scripts/updateCamera.js";
 
 // scene setup
 const scene = createScene();
@@ -24,20 +27,28 @@ createLights(scene);
 loadSatellite(scene);
 
 // resonsive
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+window.addEventListener("resize", () => {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 function animate() {
-    requestAnimationFrame(animate);
+	requestAnimationFrame(animate);
 
-    rotateSatellite();
-    updateControls();
+	rotateSatellite();
+	updateControls();
+	TWEEN.update();
 
-    renderer.render(scene, camera);
+	renderer.render(scene, camera);
 }
 
 animate();
 // main file hier word alles ingeladen en doorgegeven aan de pagina
+
+const inputFields = document.querySelector("form");
+
+inputFields.addEventListener("change", (e) => {
+	updateInfobox(e);
+	updateCamera(controls);
+});
