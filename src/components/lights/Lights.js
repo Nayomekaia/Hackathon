@@ -1,0 +1,1 @@
+// verlichting op object
