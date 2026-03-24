@@ -96,7 +96,7 @@ inputFields.addEventListener("change", (e) => {
   infoText.textContent = infoBoxData.description;
 });
 
-// 🔥 fade out bij klik
+//  fade out bij klik van de controls
 document.addEventListener("click", () => {
   if (container) {
     container.classList.add("hide");
