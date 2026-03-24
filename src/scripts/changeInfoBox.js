@@ -83,46 +83,37 @@ const data = [
 const inputFields = document.querySelector("form");
 const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box p");
-
-inputFields.addEventListener("change", (e) => {
-  // get clicked element id and use custom function for finding the matching title and description
-  let inputId = e.target;
-  let infoBoxData = getMatchingData(inputId);
-
-  // change title and description
-  infoTitle.textContent = infoBoxData[0];
-  infoText.textContent = infoBoxData[1];
-
-});
-
-// select the container
 const container = document.querySelector(".container");
 
+// event listener (maar 1 keer nodig)
 inputFields.addEventListener("change", (e) => {
-  // get clicked element id and use custom function for finding the matching title and description
-  let inputId = e.target;
-  let infoBoxData = getMatchingData(inputId);
+  const inputId = e.target;
+  const infoBoxData = getMatchingData(inputId);
+
+  // check of er data is (voorkomt errors)
+  if (!infoBoxData) return;
 
   // change title and description
-  infoTitle.textContent = infoBoxData[0];
-  infoText.textContent = infoBoxData[1];
+  infoTitle.textContent = infoBoxData.title;
+  infoText.textContent = infoBoxData.description;
 
-  // hide the scroll & drag 
+  // hide scroll & drag
   if (container) {
     container.style.display = "none";
   }
 });
 
-// A function that selects the id of an element, and searches the JSON for a matching id.
-// then stores the title and description of the found JSON object into a new list
+// function om data te matchen
 function getMatchingData(element) {
-  let itemId = element.id;
+  const itemId = element.id;
 
-  let jsonMatch = data.find((i) => i.id === itemId);
+  const jsonMatch = data.find((i) => i.id === itemId);
 
-  let infoDetails = [];
-  infoDetails.push(jsonMatch.title);
-  infoDetails.push(jsonMatch.description);
+  // als niks gevonden wordt → return null
+  if (!jsonMatch) return null;
 
-  return infoDetails;
+  return {
+    title: jsonMatch.title,
+    description: jsonMatch.description
+  };
 }
