@@ -16,13 +16,10 @@ canvas {
 	position: absolute;
 }
 
-body {
-	background-image: url("/src/assets/galaxy.jpg");
-}
-
 main {
 	--accent: hsl(13, 82%, 56%);
 	--text-color: white;
+	--border-color: rgb(120, 120, 120);
 	--background-components: #ececec1a;
 	--background-blur: blur(10px);
 	--radius: 10px;
@@ -89,13 +86,11 @@ main {
 .info-box {
 	width: min-content;
 	padding: 1.5rem;
-	position: absolute;
-
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
 	background-color: var(--background-components);
 	border-radius: var(--radius);
-	border: 1px solid var(--text-color);
+	border: 1px solid var(--border-color);
 
 	&:hover,
 	&:focus {
@@ -107,12 +102,4 @@ main {
 	}
 }
 
-.hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
 	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-}
