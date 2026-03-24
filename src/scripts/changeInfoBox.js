@@ -81,6 +81,7 @@ const data = [
 
 // select all HTML elements
 const inputFields = document.querySelector("form");
+const infoBox = document.querySelector(".info-box");
 const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box p");
 
@@ -92,6 +93,8 @@ inputFields.addEventListener("change", (e) => {
   // change title and description
   infoTitle.textContent = infoBoxData[0];
   infoText.textContent = infoBoxData[1];
+
+  infoBox.classList.remove("hidden")
 });
 
 // A function that selects the id of an element, and searches the JSON for a matching id.
