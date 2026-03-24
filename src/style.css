@@ -19,6 +19,10 @@ body {
 
 main {
 	--accent: hsl(13, 82%, 56%);
+	--text-color: white;
+	--background-components: #ececec1a;
+	--background-blur: blur(10px);
+	--radius: 10px;
 
 	display: grid;
 	justify-content: end;
@@ -27,16 +31,16 @@ main {
 }
 
 .component-picker {
-	border: 1px solid white;
-	border-radius: 10px;
+	border: 1px solid var(--text-color);
+	border-radius: var(--radius);
 	padding: 1.5em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1.5em;
-	backdrop-filter: blur(10px);
-	color: white;
-	background-color: #ececec1a;
+	backdrop-filter: var(--background-blur);
+	color: var(--text-color);
+	background-color: var(--background-components);
 
 	hgroup {
 		width: 100%;
@@ -56,7 +60,7 @@ main {
 	}
 
 	label {
-		border: 1px solid white;
+		border: 1px solid var(--text-color);
 		border-radius: 4px;
 		padding: 0.75em;
 		text-transform: uppercase;
@@ -76,5 +80,26 @@ main {
 
 	input[type="radio"] {
 		appearance: none;
+	}
+}
+
+.info-box {
+	width: min-content;
+	padding: 1.5rem;
+	position: absolute;
+
+	backdrop-filter: var(--background-blur);
+	color: var(--text-color);
+	background-color: var(--background-components);
+	border-radius: var(--radius);
+	border: 1px solid var(--text-color);
+
+	&:hover,
+	&:focus {
+		border: 1px solid var(--accent);
+	}
+
+	p {
+		width: 40ch;
 	}
 }
