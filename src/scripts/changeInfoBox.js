@@ -81,7 +81,6 @@ const data = [
 
 // select all HTML elements
 const inputFields = document.querySelector("form");
-const infoBox = document.querySelector(".info-box");
 const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box p");
 
@@ -94,8 +93,23 @@ inputFields.addEventListener("change", (e) => {
   infoTitle.textContent = infoBoxData[0];
   infoText.textContent = infoBoxData[1];
 
-  if (infoBox.classList.contains("hidden")) {
-    infoBox.classList.remove("hidden");
+});
+
+// select the container
+const container = document.querySelector(".container");
+
+inputFields.addEventListener("change", (e) => {
+  // get clicked element id and use custom function for finding the matching title and description
+  let inputId = e.target;
+  let infoBoxData = getMatchingData(inputId);
+
+  // change title and description
+  infoTitle.textContent = infoBoxData[0];
+  infoText.textContent = infoBoxData[1];
+
+  // hide the scroll & drag 
+  if (container) {
+    container.style.display = "none";
   }
 });
 
