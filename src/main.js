@@ -6,6 +6,8 @@ import { createRenderer } from './setup/renderer.js';
 import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
 import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
+import './scripts/changeInfoBox.js';
+
 
 // scene setup
 const scene = createScene();
@@ -38,3 +40,4 @@ function animate() {
 }
 
 animate();
+// main file hier word alles ingeladen en doorgegeven aan de pagina
