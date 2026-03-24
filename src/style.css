@@ -110,4 +110,34 @@ main {
 .wrapper {
 	position: absolute;
 }
+
+.container {
 	position: absolute;
+	bottom: 2rem;
+	width: 100%;
+	pointer-events: none;
+
+	p {
+		color: var(--text-color); 
+		margin: 0.25rem 0 0 0;
+		font-size: 0.9rem;
+		text-align: center;
+	}
+  }
+  
+  .scroll {
+	display: flex;         
+	flex-direction: row;   
+	align-items: center;    
+	gap: 0.9rem;           
+	color: var(--text-color); 
+  }
+  
+  .drag {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 0;
+	pointer-events: auto;
+  }
+
