@@ -1,10 +1,11 @@
 /* hier komt stylesheet */
 
 /* algemene styling */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  overflow: hidden; 
+  overflow: hidden;
   height: 100%;
 }
 

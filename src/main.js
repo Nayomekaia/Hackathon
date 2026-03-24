@@ -23,18 +23,18 @@ loadSatellite(scene);
 
 // resonsive
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 function animate() {
     requestAnimationFrame(animate);
-  
-    rotateSatellite();  
-    updateControls();   
-  
+
+    rotateSatellite();
+    updateControls();
+
     renderer.render(scene, camera);
-  }
-  
-  animate();
+}
+
+animate();
