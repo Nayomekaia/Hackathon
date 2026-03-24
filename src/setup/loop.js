@@ -1,2 +1,0 @@
-// animatie op object
-
