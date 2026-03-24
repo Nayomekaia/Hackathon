@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets /favicon.svg" />
-    <link rel="stylesheet" href="/src/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hackathon 3D</title>
-  </head>
-  <body>
-    <canvas id="app"></canvas>
-    <script type="module" src="/src/main.js"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets /favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+  <title>Hackathon 3D</title>
+</head>
+
+<body>
+  <canvas id="app"></canvas>
+  <main>
+    <section class="component-picker">
+      <hgroup>
+        <h2>Choose Component</h2>
+        <p>Get more information about the component</p>
+      </hgroup>
+      <form>
+        <label><input type="radio" name="component" />X-ray Instrument</label>
+        <label><input type="radio" name="component" />Battery Packs</label>
+        <label><input type="radio" name="component" />Star Tracker Module</label>
+        <label><input type="radio" name="component" />Bus Subsystem Mounting Rack</label>
+        <label><input type="radio" name="component" />Dawn 4U Cubedrive</label>
+        <label><input type="radio" name="component" />S-Band Antenna</label>
+        <label><input type="radio" name="component" />GNSS Receiver</label>
+        <label><input type="radio" name="component" />Sun Sensor</label>
+        <label><input type="radio" name="component" />Instrument Electronics Module</label>
+        <label><input type="radio" name="component" />Magnetometers</label>
+        <label><input type="radio" name="component" />SADM</label>
+        <label><input type="radio" name="component" />Reaction Wheel Module</label>
+        <label><input type="radio" name="component" />OBC, TCM, Inertial Measurement Unit</label>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

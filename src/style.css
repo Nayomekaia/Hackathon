@@ -1,14 +1,80 @@
 /* hier komt stylesheet */
 
 /* algemene styling */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; 
-  height: 100%;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100%;
 }
 
-
 canvas {
-  display: block;
+	display: block;
+}
+
+body {
+	background-image: url("/src/assets/galaxy.jpg");
+}
+
+main {
+	--accent: hsl(13, 82%, 56%);
+
+	display: grid;
+	justify-content: end;
+	padding: 2rem;
+	font-family: "Varela Round", sans-serif;
+}
+
+.component-picker {
+	border: 1px solid white;
+	border-radius: 10px;
+	padding: 1.5em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5em;
+	backdrop-filter: blur(10px);
+	color: white;
+	background-color: #ececec1a;
+
+	hgroup {
+		width: 100%;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: -0.5px;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75em;
+	}
+
+	label {
+		border: 1px solid white;
+		border-radius: 4px;
+		padding: 0.75em;
+		text-transform: uppercase;
+		backdrop-filter: blur(10px);
+		transition: 0.2s;
+
+		&:hover,
+		&:focus {
+			border: 1px solid var(--accent);
+		}
+
+		&:has(input[type="radio"]:checked) {
+			background-color: var(--accent);
+			border: 1px solid var(--accent);
+		}
+	}
+
+	input[type="radio"] {
+		appearance: none;
+	}
 }
