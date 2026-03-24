@@ -13,6 +13,7 @@ body {
 
 canvas {
 	display: block;
+	position: absolute;
 }
 
 body {

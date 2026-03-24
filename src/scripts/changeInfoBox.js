@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "id": "component-1",
     "title": "X-ray instrument",
@@ -65,3 +65,34 @@
     "description": "The onboard computer, inertial measurement unit, and control modules form the spacecraft’s brain and nervous system. They manage operations, track movement, and ensure autonomous decision-making in orbit."
   }
 ]
+
+// select all HTML elements
+const inputFields = document.querySelectorAll('input[type="radio"]');
+const infoTitle = document.querySelector(".info-box h3");
+const infoText = document.querySelector(".info-box p");
+
+inputFields.forEach((input) => {
+  input.addEventListener("click", (e) => {
+    // get clicked element id and use custom function for finding the matching title and description
+    let inputId = e.currentTarget;
+    let infoBoxData = getMatchingData(inputId);
+
+    // change title and description
+    infoTitle.textContent = infoBoxData[0];
+    infoText.textContent = infoBoxData[1];
+  });
+});
+
+// A function that selects the id of an element, and searches the JSON for a matching id.
+// then stores the title and description of the found JSON object into a new list
+function getMatchingData(element) {
+  let itemId = element.id;
+
+  let jsonMatch = data.find((i) => i.id === itemId);
+
+  let infoDetails = [];
+  infoDetails.push(jsonMatch.title);
+  infoDetails.push(jsonMatch.description);
+
+  return infoDetails;
+}
