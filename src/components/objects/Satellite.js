@@ -24,6 +24,16 @@ object.traverse((child) => {
     });
   }
 });
+
+      // positie en schaal
+      object.position.set(0, 0, 0);
+      object.scale.set(0.5, 0.5, 0.5);
+
+      // zet object schuin naar de andere kant
+      object.rotation.x = THREE.MathUtils.degToRad(40);
+      object.rotation.y = THREE.MathUtils.degToRad(-35);
+      object.rotation.z = THREE.MathUtils.degToRad(-10);
+
       //voeg toe aan scene
       scene.add(object);
     },
