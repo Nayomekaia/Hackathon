@@ -94,7 +94,9 @@ inputFields.addEventListener("change", (e) => {
   infoTitle.textContent = infoBoxData[0];
   infoText.textContent = infoBoxData[1];
 
-  infoBox.classList.remove("hidden")
+  if (infoBox.classList.contains("hidden")) {
+    infoBox.classList.remove("hidden");
+  }
 });
 
 // A function that selects the id of an element, and searches the JSON for a matching id.
