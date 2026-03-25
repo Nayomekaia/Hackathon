@@ -78,7 +78,6 @@ document.addEventListener("click", () => {
 function getMatchingData(element) {
 	const itemId = element.id;
 	const jsonMatch = data.find((i) => i.id === itemId);
-	console.log(jsonMatch);
 	if (!jsonMatch) return null;
 
 	return {
