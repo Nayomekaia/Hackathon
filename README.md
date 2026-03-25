@@ -5,6 +5,7 @@ Our team consisted of Melissa, Iris, Nayome, and Viresh.
 
 <img width="750" height="500" alt="cover" src="https://github.com/user-attachments/assets/20c9b7d8-5c4b-47cc-bf32-4f2f1568ad0b" />
 
+[bekijk de website](https://xplorersatellite.netlify.app/)
 
 ### Project Overview
 
