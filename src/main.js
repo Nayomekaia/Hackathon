@@ -1,7 +1,6 @@
 // main.js
 import TWEEN from "three/examples/jsm/libs/tween.module.js";
 import * as THREE from "three";
-
 import { createScene } from "./setup/scene.js";
 import { createCamera } from "./setup/camera.js";
 import { createRenderer } from "./setup/renderer.js";
@@ -11,8 +10,10 @@ import {
 	loadSatellite,
 	rotateSatellite,
 } from "./components/objects/Satellite.js";
+import { createStars } from "./components/objects/star.js";
 import { updateInfobox } from "./scripts/changeInfoBox.js";
 import { updateCamera } from "./scripts/updateCamera.js";
+import "./scripts/changeInfoBox.js";
 
 // scene setup
 const scene = createScene();
@@ -28,6 +29,9 @@ createLights(scene);
 
 // laad satellite
 loadSatellite(scene);
+
+// add 300 stars to the scene
+createStars(300, scene);
 
 // responsive
 window.addEventListener("resize", () => {

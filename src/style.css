@@ -113,11 +113,6 @@ main {
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
 
-	&:hover,
-	&:focus {
-		border: 1px solid var(--accent);
-	}
-
 	p {
 		margin-top: 1em;
 		width: 40ch;
@@ -125,8 +120,8 @@ main {
 }
 
 .logo {
-	height: 100px;
-	width: 100px;
+	width: 170px;
+	padding: 1em;
 }
 
 .wrapper {
@@ -144,6 +139,7 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 0.8s ease;
+	
 
 	p {
 		color: var(--text-color);

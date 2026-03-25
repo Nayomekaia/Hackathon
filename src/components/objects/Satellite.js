@@ -1,45 +1,33 @@
 // Satellite.js
 import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
 
 let satellite;
 
 export function loadSatellite(scene) {
-    const loader = new OBJLoader();
 
-    loader.load(
-        '/satellite.obj',
-        (object) => {
-            satellite = object;
+    const loader = new GLTFLoader();
 
-            // Laad de texture
-            const textureLoader = new THREE.TextureLoader();
-            const texture = textureLoader.load('/textured_mesh.jpg');
+    loader.load('/NebulaXplorer.glb', function (glbData) {
 
-            // fallback materiaal met texture
-            object.traverse((child) => {
-                if (child.isMesh) {
-                    child.material = new THREE.MeshStandardMaterial({
-                        map: texture,
-                    });
-                }
-            });
+            satellite = glbData.scene;
 
             // positie en schaal
-            object.position.set(0, 0, 0);
-            object.scale.set(0.5, 0.5, 0.5);
+            satellite.position.set(0, 0, 0);
+            satellite.scale.set(0.1, 0.1, 0.1);
 
             // zet object schuin naar de andere kant
-            object.rotation.x = THREE.MathUtils.degToRad(40);
-            object.rotation.y = THREE.MathUtils.degToRad(-35);
-            object.rotation.z = THREE.MathUtils.degToRad(-10);
+            satellite.rotation.x = THREE.MathUtils.degToRad(40);
+            satellite.rotation.y = THREE.MathUtils.degToRad(-35);
+            satellite.rotation.z = THREE.MathUtils.degToRad(-10);
 
             //voeg toe aan scene
-            scene.add(object);
+            scene.add(glbData.scene);
         },
         undefined,
         (error) => {
-            console.error('Error loading satellite OBJ:', error);
+            console.error('Error loading satellite GLB:', error);
         }
     );
 }
