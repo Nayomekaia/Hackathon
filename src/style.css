@@ -184,7 +184,7 @@ main {
 	}
 }
 
-#wrapper {
+.wrapper {
 	position: absolute;
 	
 	h3 {

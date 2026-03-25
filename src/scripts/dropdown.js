@@ -1,6 +1,6 @@
 function toggleDropdown(){
     document.getElementById("form").classList.toggle("dropdown-shown");
-    document.getElementById("wrapper").classList.toggle("hide");
+    document.querySelector(".wrapper").classList.toggle("hide");
     document.getElementById("hgroup").classList.toggle("hide");
     document.querySelector(".component-picker").classList.toggle("noborder");
 
