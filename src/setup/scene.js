@@ -7,6 +7,7 @@ export function createScene() {
 
     const loader = new THREE.TextureLoader();
     loader.load('/galaxy.jpg', (texture) => {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.background = texture;
     });
 
