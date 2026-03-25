@@ -106,7 +106,7 @@ main {
 			display: flex;
 			overflow-y: visible;
 			position: fixed;
-			bottom: 0;
+			bottom: 5vh;
 			overflow: scroll;
 		}
 	}
