@@ -7,6 +7,7 @@ import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
 import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
 import { renderLine } from './components/line/line.js';
+import { createStars } from './components/objects/star.js';
 import './scripts/changeInfoBox.js';
 
 
@@ -28,6 +29,10 @@ loadSatellite(scene);
 renderLine();
 
 // resonsive
+// add 300 stars to the scene
+createStars(300, scene);
+
+// responsive
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -44,4 +49,4 @@ function animate() {
 }
 
 animate();
-// main file hier word alles ingeladen en doorgegeven aan de pagina
+// main file hier wordt alles ingeladen en doorgegeven aan de pagina

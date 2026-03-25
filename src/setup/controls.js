@@ -1,5 +1,4 @@
 // controls 
-import { DragControls } from 'three/examples/jsm/Addons.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 let controls;

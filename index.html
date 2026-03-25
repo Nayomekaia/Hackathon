@@ -14,6 +14,20 @@
     <title>Hackathon 3D</title>
   </head>
 
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hackathon 3D</title>
+  </head>
+
   <body>
     <canvas id="app"></canvas>
     <main>
@@ -84,17 +98,49 @@
         </form>
       </section>
 
-      <article class="info-box hidden">
-        <h3></h3>
-        <p></p>
-      </article>
+      <section class="wrapper">
+        <img class="logo" src="./src/assets/logo.svg" alt="logo" />
+        <article class="info-box">
+          <h3>Nebula Xplorer Satellite</h3>
+          <p>
+            Nebula Xplorer is a cutting-edge X-ray satellite exploring extreme
+            objects like black holes and neutron stars. By tracking how X-ray
+            emissions change over time, it reveals what’s happening in these
+            intense environments. This student-driven mission, developed with
+            academic and industry partners, combines innovation with real-world
+            expertise. With high time resolution and continuous observations, it
+            uncovers how matter behaves, how jets form, and how these systems
+            evolve. Using advanced spectral-timing techniques, it provides a
+            unique view into the structure and physics of the universe’s most
+            extreme regions. Ready to explore the unknown? Discover the
+            components of our satellite.
+          </p>
+        </article>
+      </section>
+
+      <section class="container">
+        <section class="scroll">
+          <img class="arrow" src="./src/assets/arrow.svg" alt="arrow down" />
+          <p>Zoom in</p>
+        </section>
+
+        <section class="drag">
+          <img
+            class="arrow"
+            src="./src/assets/arrow-drag.svg"
+            alt="drag the satellite"
+          />
+          <p>Drag satellite</p>
+        </section>
+      </section>
 
       <svg class="svg-line">
-        <line  stroke="#E0115F"  stroke-dasharray="6,4" />
+        <line stroke="#E0115F" stroke-dasharray="6,4" />
         <line id="connector" x1="0" y1="80" x2="100" y2="20" stroke="#E0115F" stroke-width="2" />
         <circle id="connector-dot" r="4" fill="#E0115F" />
       </svg>
     </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
