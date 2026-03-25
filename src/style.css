@@ -139,11 +139,16 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 0.8s ease;
+	user-select: none;
 
 
 	p {
 		color: var(--text-color);
 		text-align: center;
+	}
+
+	img {
+		pointer-events: none;
 	}
 }
 
