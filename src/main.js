@@ -6,6 +6,7 @@ import { createRenderer } from './setup/renderer.js';
 import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
 import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
+import { renderLine } from './components/line/line.js';
 import './scripts/changeInfoBox.js';
 
 
@@ -22,6 +23,9 @@ createLights(scene);
 
 // laad satellite
 loadSatellite(scene);
+
+// lijn tussen satellite en info-box
+renderLine(scene, renderer, camera);
 
 // resonsive
 window.addEventListener('resize', () => {

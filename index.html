@@ -1,49 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets /favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hackathon 3D</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/src/assets /favicon.svg" />
-  <link rel="stylesheet" href="/src/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
-  <title>Hackathon 3D</title>
-</head>
+  <body>
+    <canvas id="app"></canvas>
+    <main>
+      <section class="component-picker">
+        <hgroup>
+          <h2>Choose Component</h2>
+          <p>Get more information about the component</p>
+        </hgroup>
+        <form>
+          <label
+            ><input type="radio" name="component" id="component-1" />X-ray
+            Instrument</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-2" />Battery
+            Packs</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-3" />Star
+            Tracker Module</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-4" />Bus
+            Subsystem Mounting Rack</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-5" />Dawn 4U
+            Cubedrive</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-6" />S-Band
+            Antenna</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-7" />GNSS
+            Receiver</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-8" />Sun
+            Sensor</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-9" />Instrument
+            Electronics Module</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="component"
+              id="component-10"
+            />Magnetometers</label
+          >
+          <label
+            ><input
+              type="radio"
+              name="component"
+              id="component-11"
+            />SADM</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-12" />Reaction
+            Wheel Module</label
+          >
+          <label
+            ><input type="radio" name="component" id="component-13" />OBC, TCM,
+            Inertial Measurement Unit</label
+          >
+        </form>
+      </section>
 
-<body>
-  <canvas id="app"></canvas>
-  <main>
-    <section class="component-picker">
-      <hgroup>
-        <h2>Choose Component</h2>
-        <p>Get more information about the component</p>
-      </hgroup>
-      <form>
-        <label><input type="radio" name="component" id="component-1" />X-ray Instrument</label>
-        <label><input type="radio" name="component" id="component-2"/>Battery Packs</label>
-        <label><input type="radio" name="component" id="component-3"/>Star Tracker Module</label>
-        <label><input type="radio" name="component" id="component-4"/>Bus Subsystem Mounting Rack</label>
-        <label><input type="radio" name="component" id="component-5"/>Dawn 4U Cubedrive</label>
-        <label><input type="radio" name="component" id="component-6"/>S-Band Antenna</label>
-        <label><input type="radio" name="component" id="component-7"/>GNSS Receiver</label>
-        <label><input type="radio" name="component" id="component-8"/>Sun Sensor</label>
-        <label><input type="radio" name="component" id="component-9"/>Instrument Electronics Module</label>
-        <label><input type="radio" name="component" id="component-10"/>Magnetometers</label>
-        <label><input type="radio" name="component" id="component-11"/>SADM</label>
-        <label><input type="radio" name="component" id="component-12"/>Reaction Wheel Module</label>
-        <label><input type="radio" name="component" id="component-13"/>OBC, TCM, Inertial Measurement Unit</label>
-      </form>
-    </section>
+      <article class="info-box hidden">
+        <h3></h3>
+        <p></p>
+      </article>
 
-    <article class="info-box hidden">
-      <h3></h3>
-      <p></p>
-    </article>
-
-  </main>
-  <script type="module" src="/src/main.js"></script>
-</body>
-
+      <svg class="svg-line">
+        <line  stroke="#E0115F"  stroke-dasharray="6,4" />
+        <line id="connector" x1="0" y1="80" x2="100" y2="20" stroke="#E0115F" stroke-width="2" />
+        <circle id="connector-dot" r="4" fill="#E0115F" />
+      </svg>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
