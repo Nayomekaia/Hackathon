@@ -1,4 +1,4 @@
-// main.js
+// main.js: hier word alles ingeladen en doorgegeven aan de pagina
 import TWEEN from "three/examples/jsm/libs/tween.module.js";
 import { createScene } from "./setup/scene.js";
 import { createCamera } from "./setup/camera.js";
@@ -46,14 +46,13 @@ function animate() {
 	if (!paused) {
 		rotateSatellite();
 	}
+
 	updateControls();
 	TWEEN.update();
-
 	renderer.render(scene, camera);
 }
 
 animate();
-// main file hier word alles ingeladen en doorgegeven aan de pagina
 
 const inputFields = document.querySelector("form");
 
@@ -66,5 +65,6 @@ inputFields.addEventListener("change", (e) => {
 		z: e.target.dataset.z,
 	});
 
+	// paused becomes true when anything other than default is selected
 	paused = e.target.id !== "default";
 });
