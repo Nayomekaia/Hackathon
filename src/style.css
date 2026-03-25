@@ -125,8 +125,8 @@ main {
 }
 
 .logo {
-	height: 150px;
-	width: 150px;
+	width: 170px;
+	padding: 1em;
 }
 
 .wrapper {
@@ -144,6 +144,7 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 0.8s ease;
+	
 
 	p {
 		color: var(--text-color);
