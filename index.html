@@ -15,25 +15,25 @@
 <body>
   <canvas id="app"></canvas>
   <main>
-    <section class="component-picker">
+    <section class="component-picker" onclick="toggleDropdown()">
       <hgroup>
         <h2>Choose Component</h2>
         <p>Get more information about the component</p>
       </hgroup>
-      <form>
-        <label><input type="radio" name="component" id="component-1" />X-ray Instrument</label>
-        <label><input type="radio" name="component" id="component-2" />Battery Packs</label>
-        <label><input type="radio" name="component" id="component-3" />Star Tracker Module</label>
-        <label><input type="radio" name="component" id="component-4" />Bus Subsystem Mounting Rack</label>
-        <label><input type="radio" name="component" id="component-5" />Dawn 4U Cubedrive</label>
-        <label><input type="radio" name="component" id="component-6" />S-Band Antenna</label>
-        <label><input type="radio" name="component" id="component-7" />GNSS Receiver</label>
-        <label><input type="radio" name="component" id="component-8" />Sun Sensor</label>
-        <label><input type="radio" name="component" id="component-9" />Instrument Electronics Module</label>
-        <label><input type="radio" name="component" id="component-10" />Magnetometers</label>
-        <label><input type="radio" name="component" id="component-11" />SADM</label>
-        <label><input type="radio" name="component" id="component-12" />Reaction Wheel Module</label>
-        <label><input type="radio" name="component" id="component-13" />OBC, TCM, Inertial Measurement Unit</label>
+      <form id="form">
+        <label><input type="radio" name="component" id="component-1"  onclick="toggleDropdown()"/>X-ray Instrument</label>
+        <label><input type="radio" name="component" id="component-2"  onclick="toggleDropdown()"/>Battery Packs</label>
+        <label><input type="radio" name="component" id="component-3"  onclick="toggleDropdown()"/>Star Tracker Module</label>
+        <label><input type="radio" name="component" id="component-4"  onclick="toggleDropdown()"/>Bus Subsystem Mounting Rack</label>
+        <label><input type="radio" name="component" id="component-5"  onclick="toggleDropdown()"/>Dawn 4U Cubedrive</label>
+        <label><input type="radio" name="component" id="component-6"  onclick="toggleDropdown()"/>S-Band Antenna</label>
+        <label><input type="radio" name="component" id="component-7"  onclick="toggleDropdown()"/>GNSS Receiver</label>
+        <label><input type="radio" name="component" id="component-8"  onclick="toggleDropdown()"/>Sun Sensor</label>
+        <label><input type="radio" name="component" id="component-9"  onclick="toggleDropdown()"/>Instrument Electronics Module</label>
+        <label><input type="radio" name="component" id="component-10" onclick="toggleDropdown()" />Magnetometers</label>
+        <label><input type="radio" name="component" id="component-11" onclick="toggleDropdown()" />SADM</label>
+        <label><input type="radio" name="component" id="component-12" onclick="toggleDropdown()" />Reaction Wheel Module</label>
+        <label><input type="radio" name="component" id="component-13" onclick="toggleDropdown()" />OBC, TCM, Inertial Measurement Unit</label>
       </form>
     </section>
 
@@ -68,6 +68,7 @@
   </main>
 
   <script type="module" src="/src/main.js"></script>
+  <script src="/src/scripts/dropdown.js"></script>
 </body>
 
 </html>

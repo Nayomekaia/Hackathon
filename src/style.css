@@ -75,6 +75,12 @@ main {
 		letter-spacing: -0.5px;
 	}
 
+	@media (max-width: 1000px) {
+		hgroup:hover, hgroup:active form{
+			display:unset;
+		}
+	}
+
 	form {
 		display: flex;
 		flex-direction: column;
@@ -85,6 +91,20 @@ main {
 
 		@media screen and (min-height: 911px) {
 			overflow-y: auto;
+		}
+
+		@media(max-width: 1000px) {
+			display: none;
+		}
+	}
+
+	.dropdown-shown{
+		@media (max-width: 1000px) {
+			display: flex;
+			max-height: unset;
+			overflow-y: visible;
+			position: fixed;
+			bottom: 0;
 		}
 	}
 
