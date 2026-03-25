@@ -72,14 +72,3 @@ inputFields.addEventListener("change", (e) => {
 
 	paused = true;
 });
-
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-// In click event:
-document.addEventListener("click", (e) => {
-	raycaster.setFromCamera(mouse, camera);
-	const intersects = raycaster.intersectObjects(scene.children);
-	if (intersects.length > 0) {
-		console.log(intersects[0].point); // Pinpoint position
-	}
-});

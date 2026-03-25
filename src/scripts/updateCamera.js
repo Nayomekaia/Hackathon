@@ -3,9 +3,9 @@ import * as THREE from "three";
 
 export function updateCamera(controls, camera, target) {
 	const targetCameraPos = {
-		x: target.x,
-		y: target.y,
-		z: target.z,
+		x: parseFloat(target.x),
+		y: parseFloat(target.y),
+		z: parseFloat(target.z),
 	};
 
 	const cameraPosition = {
