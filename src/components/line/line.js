@@ -23,9 +23,13 @@ export function renderLine() {
     console.log(currentComponent);
 
     // gebruik de harcoded component coordinaten om de svg lijn te maken
-    svgL.setAttribute('x1', componentCoordinates[currentComponent][0])
-    svgL.setAttribute('x2', componentCoordinates[currentComponent][1])
-    svgL.setAttribute('y1', componentCoordinates[currentComponent][2])
-    svgL.setAttribute('y2', componentCoordinates[currentComponent][0])
+    svgL.setAttribute("x1", componentCoordinates[currentComponent][0]);
+    svgL.setAttribute("x2", componentCoordinates[currentComponent][1]);
+    svgL.setAttribute("y1", componentCoordinates[currentComponent][2]);
+    svgL.setAttribute("y2", componentCoordinates[currentComponent][0]);
   });
 }
+
+// ----------------------------------------------------------------------------------------------------------
+
+

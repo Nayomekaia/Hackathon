@@ -25,7 +25,7 @@ createLights(scene);
 loadSatellite(scene);
 
 // lijn tussen satellite en info-box
-renderLine(scene, renderer, camera);
+renderLine();
 
 // resonsive
 window.addEventListener('resize', () => {
