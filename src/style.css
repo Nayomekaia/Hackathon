@@ -100,11 +100,12 @@ main {
 
 	.dropdown-shown{
 		@media (max-width: 1000px) {
+			max-height: 100vh;
 			display: flex;
-			max-height: unset;
 			overflow-y: visible;
 			position: fixed;
 			bottom: 0;
+			overflow: scroll;
 		}
 	}
 
@@ -141,7 +142,7 @@ main {
 
 .info-box {
 	width: min-content;
-	
+
 	padding: 1.5rem;
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
@@ -165,6 +166,10 @@ main {
 	}
 }
 
+.hide{
+	display: none
+}
+
 .logo {
 	width: 170px;
 	padding: 1em;
@@ -174,7 +179,7 @@ main {
 	}
 }
 
-.wrapper {
+#wrapper {
 	position: absolute;
 	
 	h3 {

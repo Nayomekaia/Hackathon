@@ -1,5 +1,8 @@
 function toggleDropdown(){
     document.getElementById("form").classList.toggle("dropdown-shown");
+    document.getElementById("wrapper").classList.toggle("hide");
+
+
 }
 
 
