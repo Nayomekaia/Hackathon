@@ -23,7 +23,7 @@ createLights(scene);
 // laad satellite
 loadSatellite(scene);
 
-// resonsive
+// responsive
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -40,4 +40,4 @@ function animate() {
 }
 
 animate();
-// main file hier word alles ingeladen en doorgegeven aan de pagina
+// main file hier wordt alles ingeladen en doorgegeven aan de pagina
