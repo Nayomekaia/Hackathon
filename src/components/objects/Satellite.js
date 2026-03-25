@@ -35,13 +35,13 @@ export function loadSatellite(scene) {
 // roteren in animatieloop
 export function rotateSatellite() {
     if (satellite) {
-        // // Langzaam draaien rond Y as
-        // satellite.rotation.y += 0.0010;
+        // Langzaam draaien rond Y as
+        satellite.rotation.y += 0.0010;
 
-        // // Kleine kanteling rond X as 
-        // satellite.rotation.x += 0.0005;
+        // Kleine kanteling rond X as 
+        satellite.rotation.x += 0.0005;
 
-        // // kleine draai rond Z as 
-        // satellite.rotation.z += 0.0003;
+        // kleine draai rond Z as 
+        satellite.rotation.z += 0.0003;
     }
 }
