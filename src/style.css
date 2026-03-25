@@ -32,41 +32,54 @@ canvas {
 
 main {
 	display: grid;
-	grid-template-rows: 100%;
-	justify-content: end;
-	padding: 2rem;
-	font-family: "Varela Round", sans-serif;
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr 1fr;
+	padding: 0;
 	min-height: 0;
 	height: 100%;
 	max-height: 100vh;
+	font-family: "Varela Round", sans-serif;
 
-	@media(max-width: 1000px){
-		grid-template-rows: unset;
-		padding: 0;
-		grid-template-areas: 
-		"infoBox",
-		"componentList";
+	@media (min-width: 1000px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 100%;
+		padding: 2rem;
 	}
 }
 
 .component-picker {
-	border: 1px solid var(--border-color);
-	border-radius: var(--radius);
-	padding: 1.5em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1.5em;
+	padding: 1.5em;
+	max-height: 100%;
+
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	align-self: start;
+	justify-self: end;
+
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius);
+
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
 	background-color: var(--background-components);
-	/* height: 100%; */
-	/* max-height: min(100%, 100dvh); */
 	scrollbar-color: var(--text-color) var(--background-components);
+
+	@media (max-width: 1000px) {
+		align-self: end;
+		width: 100vw;
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		justify-self: center;
+	}
 
 	hgroup {
 		width: 100%;
 		text-align: center;
+		anchor-name: --component-picker;
 	}
 
 	h2 {
@@ -75,14 +88,8 @@ main {
 		letter-spacing: -0.5px;
 	}
 
-	@media (max-width: 1000px) {
-		hgroup:hover, hgroup:active form{
-			display:unset;
-		}
-	}
-
 	form {
-		display: flex;
+		display: none;
 		flex-direction: column;
 		gap: 0.75em;
 		max-height: 100%;
@@ -90,24 +97,24 @@ main {
 		overflow-y: scroll;
 		padding-right: 0.5em;
 
-		@media screen and (min-height: 640px) {
+		@media (min-height: 640px) {
 			overflow-y: auto;
 			padding-right: 0;
 		}
 
-		@media(max-width: 1000px) {
-			display: none;
+		@media (min-width: 1000px) {
+			display: flex;
 		}
 	}
 
-	.dropdown-shown{
+	.dropdown-shown {
 		@media (max-width: 1000px) {
-			max-height: 100vh;
+			max-height: 40vh;
 			display: flex;
-			overflow-y: visible;
-			position: fixed;
-			bottom: 5vh;
-			overflow: scroll;
+			position: absolute;
+			position-anchor: --component-picker;
+			bottom: calc(anchor(top) + 2rem);
+			overflow-y: scroll;
 		}
 	}
 
@@ -133,18 +140,10 @@ main {
 	input[type="radio"] {
 		appearance: none;
 	}
-
-	@media(max-width: 1000px){
-		grid-area: componentList;
-		height: 15vh;
-		width: 100vw;
-		align-self: end;
-	}
 }
 
 .info-box {
 	width: min-content;
-
 	padding: 1.5rem;
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
@@ -157,45 +156,58 @@ main {
 		margin-top: 1em;
 	}
 
-	@media(min-width: 1000px){
-		width: 30vw;
-	}
-	
-	@media(max-width: 1000px){
+	@media (max-width: 1000px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		width: 100%;
-		max-height: 25vh;
-		overflow: scroll;
-		grid-area: infoBox;
-	}
-}
+		scrollbar-color: var(--text-color) var(--background-components);
 
-.hide{
-	@media(max-width: 1000px){
-		display: none
-	}
-}
-
-.noborder{
-	@media(max-width: 1000px){
-		border: 0;
-		background: unset;
+		div {
+			width: 100%;
+			max-height: 25vh;
+			overflow-y: scroll;
+		}
 	}
 }
 
 .logo {
+	display: none;
 	width: 170px;
 	padding: 1em;
-	@media(max-width:1000px){
-		
-	display: none;
+
+	@media (min-width: 1000px) {
+		display: block;
 	}
 }
 
 .wrapper {
-	position: absolute;
+	position: relative;
+	align-self: start;
+	max-width: 100%;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
 
 	h3 {
 		text-transform: uppercase;
+	}
+
+	div {
+		max-height: 8rem;
+	}
+
+	div,
+	p {
+		width: 60ch;
+		max-width: 100%;
+	}
+
+	@media (width > 1000px) {
+		div,
+		p {
+			width: 40ch;
+			max-height: unset;
+		}
 	}
 }
 
@@ -211,11 +223,10 @@ main {
 		color: var(--text-color);
 		text-align: center;
 	}
-}
 
-.container.hide {
-	display: none;
-	pointer-events: none;
+	&.hide {
+		display: none;
+	}
 }
 
 .scroll {
