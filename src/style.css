@@ -39,6 +39,14 @@ main {
 	min-height: 0;
 	height: 100%;
 	max-height: 100vh;
+
+	@media(max-width: 1000px){
+		grid-template-rows: unset;
+		padding: 0;
+		grid-template-areas: 
+		"infoBox",
+		"componentList";
+	}
 }
 
 .component-picker {
@@ -52,8 +60,8 @@ main {
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
 	background-color: var(--background-components);
-	height: 100%;
-	max-height: min(100%, 100dvh);
+	/* height: 100%; */
+	/* max-height: min(100%, 100dvh); */
 	scrollbar-color: var(--text-color) var(--background-components);
 
 	hgroup {
@@ -102,10 +110,18 @@ main {
 	input[type="radio"] {
 		appearance: none;
 	}
+
+	@media(max-width: 1000px){
+		grid-area: componentList;
+		height: 15vh;
+		width: 100vw;
+		align-self: end;
+	}
 }
 
 .info-box {
 	width: min-content;
+	
 	padding: 1.5rem;
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
@@ -115,13 +131,27 @@ main {
 
 	p {
 		margin-top: 1em;
-		width: 40ch;
+	}
+
+	@media(min-width: 999px){
+		width: 30vw;
+	}
+	
+	@media(max-width: 1000px){
+		width: 100%;
+		max-height: 25vh;
+		overflow: scroll;
+		grid-area: infoBox;
 	}
 }
 
 .logo {
 	width: 170px;
 	padding: 1em;
+	@media(max-width:1000px){
+		
+	display: none;
+	}
 }
 
 .wrapper {
