@@ -1,15 +1,18 @@
-// maakt de scene oftewel 3d wereld waar alles in zit 
-import * as THREE from 'three';
+// maakt de scene oftewel 3d wereld waar alles in zit
+import * as THREE from "three";
 
 export function createScene() {
-    const scene = new THREE.Scene();
+  const scene = new THREE.Scene();
 
+  const loader = new THREE.TextureLoader();
+  loader.load("/galaxy.jpg", (texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    scene.background = texture;
+  });
 
-    const loader = new THREE.TextureLoader();
-    loader.load('/galaxy.jpg', (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = texture;
-    });
+  const axesHelper = new THREE.AxesHelper(1);
+  axesHelper.position.copy
+  scene.add(axesHelper);
 
-    return scene;
+  return scene;
 }

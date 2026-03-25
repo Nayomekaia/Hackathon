@@ -16,7 +16,7 @@ const componentCoordinates = {
 
 const svgL = document.querySelector("#connector");
 
-export function renderLine() {
+export function renderLine(scene) {
   // mbv de input id bepalen welke componentCoordinate gebruikt wordt
   document.querySelector("form").addEventListener("change", (e) => {
     currentComponent = e.target.id;
@@ -28,8 +28,35 @@ export function renderLine() {
     svgL.setAttribute("y1", componentCoordinates[currentComponent][2]);
     svgL.setAttribute("y2", componentCoordinates[currentComponent][0]);
   });
+
+  // console.log(scene.children);
+
+  // const glb = scene.getObjectByName("satellite");
+
+  // console.log(glb); // dit is de root group
+
+  // glb.traverse((child) => {
+  //   if (child.isMesh) {
+  //     console.log("Mesh:", child);
+  //   }
+  // });
 }
 
 // ----------------------------------------------------------------------------------------------------------
 
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
+// const loader = new GLTFLoader();
+// loader.load("Camera.glb", function (gltf) {
+//   //Traverse through the meshes
+//   gltf.scene.children.forEach((child) => {
+//     child.traverse((n) => {
+//       // Find the hotspots
+//       if (n.name && n.name.includes("hotspot")) {
+//         // ...
+//       }
+//     })
+//   });
+// })
+
+// console.log(glbData.scene.children);

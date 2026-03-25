@@ -26,7 +26,7 @@ createLights(scene);
 loadSatellite(scene);
 
 // lijn tussen satellite en info-box
-renderLine();
+renderLine(scene);
 
 // resonsive
 // add 300 stars to the scene
