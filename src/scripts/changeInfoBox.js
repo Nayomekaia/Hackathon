@@ -81,34 +81,37 @@ const data = [
 
 // select all HTML elements
 const inputFields = document.querySelector("form");
-const infoBox = document.querySelector(".info-box");
 const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box p");
+const container = document.querySelector(".container");
 
+// update info bij form change
 inputFields.addEventListener("change", (e) => {
-  // get clicked element id and use custom function for finding the matching title and description
-  let inputId = e.target;
-  let infoBoxData = getMatchingData(inputId);
+  const inputId = e.target;
+  const infoBoxData = getMatchingData(inputId);
 
-  // change title and description
-  infoTitle.textContent = infoBoxData[0];
-  infoText.textContent = infoBoxData[1];
+  if (!infoBoxData) return;
 
-  if (infoBox.classList.contains("hidden")) {
-    infoBox.classList.remove("hidden");
+  infoTitle.textContent = infoBoxData.title;
+  infoText.textContent = infoBoxData.description;
+});
+
+//  fade out bij klik van de controls
+document.addEventListener("click", () => {
+  if (container) {
+    container.classList.add("hide");
   }
 });
 
-// A function that selects the id of an element, and searches the JSON for a matching id.
-// then stores the title and description of the found JSON object into a new list
+// function om data te matchen
 function getMatchingData(element) {
-  let itemId = element.id;
+  const itemId = element.id;
+  const jsonMatch = data.find((i) => i.id === itemId);
 
-  let jsonMatch = data.find((i) => i.id === itemId);
+  if (!jsonMatch) return null;
 
-  let infoDetails = [];
-  infoDetails.push(jsonMatch.title);
-  infoDetails.push(jsonMatch.description);
-
-  return infoDetails;
+  return {
+    title: jsonMatch.title,
+    description: jsonMatch.description
+  };
 }

@@ -1,1 +1,1 @@
-readme van de hacathon
+readme van de hackathon

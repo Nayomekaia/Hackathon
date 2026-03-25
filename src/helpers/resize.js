@@ -1,4 +1,4 @@
-//responiviteit
+//responsiveness
 
 export function handleResize(camera, renderer) {
     window.addEventListener('resize', () => {
