@@ -1,6 +1,5 @@
 // main.js
 import TWEEN from "three/examples/jsm/libs/tween.module.js";
-import * as THREE from "three";
 import { createScene } from "./setup/scene.js";
 import { createCamera } from "./setup/camera.js";
 import { createRenderer } from "./setup/renderer.js";
@@ -8,6 +7,7 @@ import { createControls, updateControls } from "./setup/controls.js";
 import { createLights } from "./components/lights/lights.js";
 import {
 	loadSatellite,
+	resetSatellite,
 	rotateSatellite,
 } from "./components/objects/Satellite.js";
 import { createStars } from "./components/objects/star.js";
@@ -60,9 +60,11 @@ const inputFields = document.querySelector("form");
 inputFields.addEventListener("change", (e) => {
 	if (e.target.id == "clear") {
 		paused = false;
+		resetSatellite();
+		updateCamera(controls, camera, { x: 0, y: 0, z: 5 });
 		return;
 	}
-
+	resetSatellite();
 	updateInfobox(e);
 	updateCamera(controls, camera, {
 		x: e.target.dataset.x,
