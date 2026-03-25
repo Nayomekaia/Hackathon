@@ -42,7 +42,7 @@ main {
 }
 
 .component-picker {
-	border: 1px solid var(--text-color);
+	border: 1px solid var(--border-color);
 	border-radius: var(--radius);
 	padding: 1.5em;
 	display: flex;
@@ -53,7 +53,7 @@ main {
 	color: var(--text-color);
 	background-color: var(--background-components);
 	height: 100%;
-	max-height: min(100%, 100dvh);
+	max-height: min(100%, 70dvh);
 	scrollbar-color: var(--text-color) var(--background-components);
 
 	hgroup {
@@ -81,12 +81,13 @@ main {
 	}
 
 	label {
-		border: 1px solid var(--text-color);
+		border: 1px solid var(--border-color);
 		border-radius: 4px;
 		padding: 0.75em;
 		text-transform: uppercase;
 		background-color: #00000054;
 		transition: 0.2s;
+		width: clamp(12em, 60vw, 20em);
 
 		&:hover,
 		&:focus {
