@@ -1,15 +1,20 @@
 // main.js
-
-import { createScene } from './setup/scene.js';
-import { createCamera } from './setup/camera.js';
-import { createRenderer } from './setup/renderer.js';
-import { createControls, updateControls } from './setup/controls.js';
-import { createLights } from './components/lights/lights.js';
-import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
-import { createStars } from './components/objects/star.js';
-import './scripts/changeInfoBox.js';
+import TWEEN from "three/examples/jsm/libs/tween.module.js";
+import { createScene } from "./setup/scene.js";
+import { createCamera } from "./setup/camera.js";
+import { createRenderer } from "./setup/renderer.js";
+import { createControls, updateControls } from "./setup/controls.js";
+import { createLights } from "./components/lights/lights.js";
+import {
+	loadSatellite,
+	resetSatellite,
+	rotateSatellite,
+} from "./components/objects/Satellite.js";
+import { createStars } from "./components/objects/star.js";
+import { updateInfobox } from "./scripts/changeInfoBox.js";
+import { updateCamera } from "./scripts/updateCamera.js";
+import "./scripts/changeInfoBox.js";
 import './scripts/controlsFadeOut.js';
-
 
 // scene setup
 const scene = createScene();
@@ -18,6 +23,7 @@ const renderer = createRenderer();
 
 // controls met camera en renderer
 const controls = createControls(camera, renderer);
+let paused = false;
 
 // licht toevoegen
 createLights(scene);
@@ -29,20 +35,43 @@ loadSatellite(scene);
 createStars(300, scene);
 
 // responsive
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+window.addEventListener("resize", () => {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 function animate() {
-    requestAnimationFrame(animate);
+	requestAnimationFrame(animate);
 
-    rotateSatellite();
-    updateControls();
+	if (!paused) {
+		rotateSatellite();
+	}
+	updateControls();
+	TWEEN.update();
 
-    renderer.render(scene, camera);
+	renderer.render(scene, camera);
 }
 
 animate();
-// main file hier wordt alles ingeladen en doorgegeven aan de pagina
+// main file hier word alles ingeladen en doorgegeven aan de pagina
+
+const inputFields = document.querySelector("form");
+
+inputFields.addEventListener("change", (e) => {
+	if (e.target.id == "clear") {
+		paused = false;
+		resetSatellite();
+		updateCamera(controls, camera, { x: 0, y: 0, z: 5 });
+		return;
+	}
+	resetSatellite();
+	updateInfobox(e);
+	updateCamera(controls, camera, {
+		x: e.target.dataset.x,
+		y: e.target.dataset.y,
+		z: e.target.dataset.z,
+	});
+
+	paused = true;
+});
