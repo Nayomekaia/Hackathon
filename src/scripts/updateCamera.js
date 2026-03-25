@@ -25,6 +25,3 @@ export function updateCamera(controls, camera, target) {
 		})
 		.start();
 }
-
-// pinpoint a specific point on the satellite
-// either move camera to look at that point, or rotate satellite so that point faces the camera. which is easier to achieve?
