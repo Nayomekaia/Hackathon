@@ -26,7 +26,7 @@ createLights(scene);
 // laad satellite
 loadSatellite(scene);
 
-// resonsive
+// responsive
 window.addEventListener("resize", () => {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
