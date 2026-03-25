@@ -113,11 +113,6 @@ main {
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
 
-	&:hover,
-	&:focus {
-		border: 1px solid var(--accent);
-	}
-
 	p {
 		margin-top: 1em;
 		width: 40ch;
