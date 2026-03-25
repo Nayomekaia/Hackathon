@@ -60,18 +60,11 @@ const inputFields = document.querySelector("form");
 inputFields.addEventListener("change", (e) => {
 	resetSatellite();
 	updateInfobox(e);
-
-	if (e.target.id == "default") {
-		paused = false;
-		updateCamera(controls, camera, { x: 0, y: 0, z: 5 });
-		return;
-	}
-
 	updateCamera(controls, camera, {
 		x: e.target.dataset.x,
 		y: e.target.dataset.y,
 		z: e.target.dataset.z,
 	});
 
-	paused = true;
+	paused = e.target.id !== "default";
 });
