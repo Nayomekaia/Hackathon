@@ -126,7 +126,7 @@ main {
 
 .wrapper {
 	position: absolute;
-	
+
 	h3 {
 		text-transform: uppercase;
 	}
@@ -139,18 +139,18 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 0.8s ease;
-	
+
 
 	p {
 		color: var(--text-color);
 		text-align: center;
 	}
 }
-  
-  .container.hide {
+
+.hide {
 	display: none;
 	pointer-events: none;
-  }
+}
 
 .scroll {
 	display: flex;
@@ -168,4 +168,17 @@ main {
 	bottom: 0;
 	pointer-events: auto;
 	text-transform: uppercase;
+}
+
+.show-controls {
+	position: absolute;
+	bottom: 3em;
+	left: 3em;
+	width: 3em;
+	background-color: transparent;
+	border: none;
+
+	svg {
+		fill: var(--accent);
+	}
 }

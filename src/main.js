@@ -8,6 +8,7 @@ import { createLights } from './components/lights/lights.js';
 import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
 import { createStars } from './components/objects/star.js';
 import './scripts/changeInfoBox.js';
+import './scripts/controlsFadeOut.js';
 
 
 // scene setup
