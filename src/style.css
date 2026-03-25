@@ -50,7 +50,7 @@ main {
 }
 
 .component-picker {
-	border: 1px solid var(--text-color);
+	border: 1px solid var(--border-color);
 	border-radius: var(--radius);
 	padding: 1.5em;
 	display: flex;
@@ -86,11 +86,13 @@ main {
 		flex-direction: column;
 		gap: 0.75em;
 		max-height: 100%;
+		width: 100%;
 		overflow-y: scroll;
 		padding-right: 0.5em;
 
-		@media screen and (min-height: 911px) {
+		@media screen and (min-height: 640px) {
 			overflow-y: auto;
+			padding-right: 0;
 		}
 
 		@media(max-width: 1000px) {
@@ -110,7 +112,7 @@ main {
 	}
 
 	label {
-		border: 1px solid var(--text-color);
+		border: 1px solid var(--border-color);
 		border-radius: 4px;
 		padding: 0.75em;
 		text-transform: uppercase;
@@ -190,7 +192,7 @@ main {
 
 .wrapper {
 	position: absolute;
-	
+
 	h3 {
 		text-transform: uppercase;
 	}
@@ -203,18 +205,17 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 0.8s ease;
-	
 
 	p {
 		color: var(--text-color);
 		text-align: center;
 	}
 }
-  
-  .container.hide {
+
+.container.hide {
 	display: none;
 	pointer-events: none;
-  }
+}
 
 .scroll {
 	display: flex;
