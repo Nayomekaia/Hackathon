@@ -154,7 +154,7 @@ main {
 		margin-top: 1em;
 	}
 
-	@media(min-width: 999px){
+	@media(min-width: 1000px){
 		width: 30vw;
 	}
 	
@@ -167,12 +167,16 @@ main {
 }
 
 .hide{
-	display: none
+	@media(max-width: 1000px){
+		display: none
+	}
 }
 
 .noborder{
-	border: 0;
-	background: unset;
+	@media(max-width: 1000px){
+		border: 0;
+		background: unset;
+	}
 }
 
 .logo {
