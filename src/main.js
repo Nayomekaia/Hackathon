@@ -14,6 +14,7 @@ import { createStars } from "./components/objects/star.js";
 import { updateInfobox } from "./scripts/changeInfoBox.js";
 import { updateCamera } from "./scripts/updateCamera.js";
 import "./scripts/changeInfoBox.js";
+import { toggleDropdown } from "./scripts/dropdown.js";
 
 // scene setup
 const scene = createScene();
@@ -55,6 +56,7 @@ function animate() {
 animate();
 // main file hier word alles ingeladen en doorgegeven aan de pagina
 
+// EVENT LISTENERS
 const inputFields = document.querySelector("form");
 
 inputFields.addEventListener("change", (e) => {
@@ -74,4 +76,14 @@ inputFields.addEventListener("change", (e) => {
 	});
 
 	paused = true;
+
+	if (inputFields.classList.contains("dropdown-shown")) {
+		inputFields.classList.remove("dropdown-shown");
+	}
+});
+
+const componentPicker = document.querySelector(".component-picker");
+
+componentPicker.addEventListener("click", () => {
+	toggleDropdown();
 });

@@ -15,33 +15,27 @@
 <body>
   <canvas id="app"></canvas>
   <main>
-    <section class="component-picker" onclick="toggleDropdown()">
+    <section class="component-picker">
       <hgroup id="hgroup">
         <h2>Choose Component</h2>
         <p>Get more information about the component</p>
       </hgroup>
 
       <form id="form">
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="default">Clear Selection</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-1" data-x="0.873"
-            data-y="1.670" data-z="1.370" />
+        <label><input type="radio" name="component" id="default">Clear Selection</label>
+        <label><input type="radio" name="component" id="component-1" data-x="0.873" data-y="1.670" data-z="1.370" />
           X-ray Instrument</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-2" data-x="-0.621"
-            data-y="0.218" data-z="2.234" />
+        <label><input type="radio" name="component" id="component-2" data-x="-0.621" data-y="0.218" data-z="2.234" />
           Star Tracker Module</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-3" data-x="-1.081"
-            data-y="-1.338" data-z="1.571" />
+        <label><input type="radio" name="component" id="component-3" data-x="-1.081" data-y="-1.338" data-z="1.571" />
           Dawn 4U Cubedrive</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-4" data-x="-0.923"
-            data-y="-2.077" data-z="0.508" />
+        <label><input type="radio" name="component" id="component-4" data-x="-0.923" data-y="-2.077" data-z="0.508" />
           S-Band Antenna</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-5" data-x="-1.069"
-            data-y="-2.069" data-z="-0.066" />
+        <label><input type="radio" name="component" id="component-5" data-x="-1.069" data-y="-2.069" data-z="-0.066" />
           Sun Sensor</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-6" data-x="-0.439" data-y="0.165" data-z="-2.281" />
+        <label><input type="radio" name="component" id="component-6" data-x="-0.439" data-y="0.165" data-z="-2.281" />
           Magnetorquers</label>
-        <label><input onclick="toggleDropdown()" type="radio" name="component" id="component-7" data-x="-0.269"
-            data-y="-2.088" data-z="2.368" />
+        <label><input type="radio" name="component" id="component-7" data-x="-0.269" data-y="-2.088" data-z="2.368" />
           Solar Panel</label>
       </form>
       </form>
@@ -89,7 +83,7 @@
   </main>
 
   <script type="module" src="/src/main.js"></script>
-  <script src="/src/scripts/dropdown.js"></script>
+  <script type="module" src="/src/scripts/dropdown.js"></script>
 </body>
 
 </html>
