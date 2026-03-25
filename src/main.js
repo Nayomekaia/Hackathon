@@ -19,6 +19,7 @@ const renderer = createRenderer();
 
 // controls met camera en renderer
 const controls = createControls(camera, renderer);
+let paused = false;
 
 // licht toevoegen
 createLights(scene);
@@ -36,7 +37,9 @@ window.addEventListener("resize", () => {
 function animate() {
 	requestAnimationFrame(animate);
 
-	rotateSatellite();
+	if (!paused) {
+		rotateSatellite();
+	}
 	updateControls();
 	TWEEN.update();
 
@@ -49,6 +52,17 @@ animate();
 const inputFields = document.querySelector("form");
 
 inputFields.addEventListener("change", (e) => {
+	if (e.target.id == "clear") {
+		paused = false;
+		return;
+	}
+
 	updateInfobox(e);
-	updateCamera(controls);
+	updateCamera(controls, camera, {
+		x: e.target.dataset.x,
+		y: e.target.dataset.y,
+		z: e.target.dataset.z,
+	});
+
+	paused = true;
 });
