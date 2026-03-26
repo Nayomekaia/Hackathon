@@ -5,7 +5,6 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 
 let satellite;
-let meshIndex = 0;
 
 export function loadSatellite(scene) {
   const loader = new GLTFLoader();
@@ -25,7 +24,6 @@ export function loadSatellite(scene) {
       satellite.rotation.z = THREE.MathUtils.degToRad(-10);
 
       // voeg hotspots toe aan satellite
-      // glbHotspot(glbData.scene.children);
       glbHotspot(satellite);
 
       //voeg toe aan scene
@@ -104,43 +102,6 @@ function glbHotspot(scene) {
     const hotspotLabel = new CSS2DObject(hotspot);
     hotspotLabel.position.set(spot.x, spot.y, spot.z);
 
-    // Voeg toe aan scene (of aan satellite als je wilt dat ze meedraaien)
     scene.add(hotspotLabel);
   });
 }
-
-// function glbHotspot(parts) {
-//   meshIndex = 0;
-//   parts.forEach((child) => {
-//     child.traverse((n) => {
-//       // Find the hotspots
-//       if (n.name && n.isMesh) {
-//         // console.log(n)
-//         console.log(meshIndex, n.name);
-
-//         const spot = hotspots[meshIndex] || { x: 0, y: 0, z: 0 };
-
-//         let meshName = spot.name;
-
-//         const hotspot = document.createElement("div");
-//         hotspot.className = "hotspot";
-//         hotspot.setAttribute("name", meshName);
-
-//         // Add a tooltip element
-//         const tooltip = document.createElement("div");
-//         tooltip.className = "tooltip";
-
-//         // voeg name van de mesh toe aan tooltip, te zien bij hover
-//         tooltip.innerHTML = meshName;
-//         hotspot.appendChild(tooltip);
-
-//         const hotspotLabel = new CSS2DObject(hotspot);
-//         hotspotLabel.position.set(spot.x, spot.y, spot.z);
-//         n.add(hotspotLabel);
-//         hotspotLabel.layers.set(0);
-
-//         meshIndex++;
-//       }
-//     });
-//   });
-// }
