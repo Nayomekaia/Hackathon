@@ -10,9 +10,5 @@ export function createScene() {
     scene.background = texture;
   });
 
-  const axesHelper = new THREE.AxesHelper(1);
-  axesHelper.position.copy
-  scene.add(axesHelper);
-
   return scene;
 }

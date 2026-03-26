@@ -5,15 +5,10 @@ import { createCamera } from './setup/camera.js';
 import { createRenderer } from './setup/renderer.js';
 import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
-import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
+import { loadSatellite, rotateSatellite, initLabelRenderer, renderLabels } from './components/objects/Satellite.js';
 import { renderLine } from './components/line/line.js';
 import { createStars } from './components/objects/star.js';
 import './scripts/changeInfoBox.js';
-
-import { 
-  initLabelRenderer, 
-  renderLabels 
-} from './components/objects/Satellite.js';
 
 
 // scene setup

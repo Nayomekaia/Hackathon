@@ -27,6 +27,9 @@ export function loadSatellite(scene) {
       //voeg toe aan scene
       scene.add(glbData.scene);
 
+      // voeg hotspots toe
+      // addHotspots(glbData.scene);
+
     },
     undefined,
     (error) => {
@@ -49,16 +52,50 @@ export function rotateSatellite() {
   }
 }
 
-import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
+import { CSS2DRenderer, CSS2DObject, } from "three/examples/jsm/renderers/CSS2DRenderer.js";
+
+let labelRenderer;
+
+// Roep dit EENMALIG aan bij setup
+export function initLabelRenderer() {
+  labelRenderer = new CSS2DRenderer();
+  labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  labelRenderer.domElement.style.position = "absolute";
+  labelRenderer.domElement.style.top = "0";
+  labelRenderer.domElement.style.pointerEvents = "none";
+  document.body.appendChild(labelRenderer.domElement);
+
+  window.addEventListener("resize", () => {
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  return labelRenderer;
+}
+
+export function renderLabels(scene, camera) {
+  if (labelRenderer) {
+    labelRenderer.render(scene, camera);
+  }
+}
+
+const hotspotInfo = {
+  Propulsion_Module: {
+    tooltipText: "Zorgt voor de voortstuwing van de satelliet",
+  },
+  Star_Tracker_Module: {
+    tooltipText: "Navigeert aan de hand van sterrenposities",
+  },
+  Star_Tracker_Module_Bracket: {
+    tooltipText: "Bevestiging voor de star tracker",
+  },
+};
 
 function glbChildren(parts) {
   parts.forEach((child) => {
     child.traverse((n) => {
-      // Find the hotspots
-      if (n.name) {
-        console.log(n);
-        console.log(n.position.x, n.position.z, n.position.z);
-        // console.log(n.name);
+      // Alleen hotspots toevoegen voor meshes in hotspotInfo
+      if (n.name && n.isMesh && hotspotInfo[n.name]) {
+        const info = hotspotInfo[n.name];
 
         const hotspot = document.createElement("div");
         hotspot.className = "hotspot";
@@ -68,18 +105,17 @@ function glbChildren(parts) {
         const tooltip = document.createElement("div");
         tooltip.className = "tooltip";
 
-        // Use the custom properties embedded from Blender through the userData section.
-        tooltip.innerHTML = "hallo";
+        // Gebruik tooltipText uit hotspotInfo (zoals userData in de blog)
+        tooltip.innerHTML = info.tooltipText;
         hotspot.appendChild(tooltip);
 
-        document.body.appendChild(hotspot);
-
-        const hotspotLabel = new CSS2DObject();
-        // hotspotLabel.setSize(window.innerWidth, window.innerHeight);
-        hotspotLabel.position.set(0, 1, 0);
+        const hotspotLabel = new CSS2DObject(hotspot);
+        hotspotLabel.position.set(0, 0, 0);
         n.add(hotspotLabel);
         hotspotLabel.layers.set(0);
       }
     });
   });
 }
+
+
