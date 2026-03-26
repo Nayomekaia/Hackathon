@@ -162,7 +162,7 @@ main {
 	width: 3em;
 	background-color: transparent;
 	border: none;
-	transition: opacity 400ms ease, visibility 400ms ease;
+	transition: opacity 500ms ease, visibility 500ms ease;
 	transition-delay: 0ms;
 
 	svg {
@@ -170,7 +170,7 @@ main {
 	}
 
 	&.show {
-		transition-delay: 400ms;
+		transition-delay: 500ms;
 	}
 
 	&.hide {
@@ -179,7 +179,7 @@ main {
 }
 
 .container.show {
-	transition-delay: 400ms;
+	transition-delay: 500ms;
 }
 
 .hide {
