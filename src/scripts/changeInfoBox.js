@@ -50,8 +50,6 @@ const data = [
 ];
 
 // select all HTML elements
-const infoBox = document.querySelector(".info-box");
-const inputFields = document.querySelector("form");
 const infoTitle = document.querySelector(".info-box h3");
 const infoText = document.querySelector(".info-box .text");
 const container = document.querySelector(".container");
