@@ -201,7 +201,7 @@ main {
 }
 
 #jswarning{
-	font-size: 3rem;
+	 font-size: clamp(2rem, 1.2308rem + 4.1026vw, 4rem);
 	max-width: 100%;
 	margin-bottom: 1000vh;
 	max-width: 80vw;
@@ -220,6 +220,6 @@ main {
 		text-decoration-line: underline;
 		text-decoration-style: double;
 		font-family: "impact";
-		font-size: 4rem;
+		font-size: clamp(4rem, 3.2308rem + 4.1026vw, 6rem);
 	}
 }
