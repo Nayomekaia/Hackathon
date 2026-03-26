@@ -12,6 +12,7 @@ import { updateCamera } from "./scripts/updateCamera.js";
 import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 import "./scripts/changeInfoBox.js";
 import './scripts/controlsFadeOut.js';
+import './scripts/currentHotspot.js';
 
 // scene setup
 const scene = createScene();
