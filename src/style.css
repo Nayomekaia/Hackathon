@@ -32,34 +32,55 @@ canvas {
 
 main {
 	display: grid;
-	grid-template-rows: 100%;
-	justify-content: end;
-	padding: 2rem;
-	font-family: "Varela Round", sans-serif;
+	grid-template-columns: 100%;
+	grid-template-rows: 1fr 1fr;
+	padding: 0;
 	min-height: 0;
 	height: 100%;
 	max-height: 100vh;
 	background-color: black;
+	font-family: "Varela Round", sans-serif;
+
+	@media (min-width: 1000px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 100%;
+		padding: 2rem;
+	}
 }
 
 .component-picker {
-	border: 1px solid var(--border-color);
-	border-radius: var(--radius);
-	padding: 1.5em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 1.5em;
+	padding: 1.5em;
+	max-height: 100%;
+
+	grid-column: 2 / 3;
+	grid-row: 1 / 2;
+	align-self: start;
+	justify-self: end;
+
+	border: 1px solid var(--border-color);
+	border-radius: var(--radius);
+
 	backdrop-filter: var(--background-blur);
 	color: var(--text-color);
 	background-color: var(--background-components);
-	height: 100%;
-	max-height: max-content;
 	scrollbar-color: var(--text-color) var(--background-components);
+
+	@media (max-width: 1000px) {
+		align-self: end;
+		width: 100vw;
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+		justify-self: center;
+	}
 
 	hgroup {
 		width: 100%;
 		text-align: center;
+		anchor-name: --component-picker;
 	}
 
 	h2 {
@@ -69,7 +90,7 @@ main {
 	}
 
 	form {
-		display: flex;
+		display: none;
 		flex-direction: column;
 		gap: 0.75em;
 		max-height: 100%;
@@ -77,9 +98,24 @@ main {
 		overflow-y: scroll;
 		padding-right: 0.5em;
 
-		@media screen and (min-height: 640px) {
+		@media (min-height: 640px) {
 			overflow-y: auto;
 			padding-right: 0;
+		}
+
+		@media (min-width: 1000px) {
+			display: flex;
+		}
+	}
+
+	.dropdown-shown {
+		@media (max-width: 1000px) {
+			max-height: 40vh;
+			display: flex;
+			position: absolute;
+			position-anchor: --component-picker;
+			bottom: calc(anchor(top) + 2rem);
+			overflow-y: scroll;
 		}
 	}
 
@@ -115,24 +151,70 @@ main {
 	background-color: var(--background-components);
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
+	view-transition-name: infobox;
 
 	div,
 	p {
 		margin-top: 1em;
-		width: 40ch;
+	}
+
+	@media (max-width: 1000px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		scrollbar-color: var(--text-color) var(--background-components);
+
+		div {
+			width: 100%;
+			max-height: 25vh;
+			overflow-y: scroll;
+		}
 	}
 }
 
+::view-transition-group(infobox) {
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
+}
+
 .logo {
+	display: none;
 	width: 170px;
 	padding: 1em;
+
+	@media (min-width: 1000px) {
+		display: block;
+	}
 }
 
 .wrapper {
-	position: absolute;
+	position: relative;
+	align-self: start;
+	max-width: 100%;
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
 
 	h3 {
 		text-transform: uppercase;
+	}
+
+	div {
+		max-height: 8rem;
+	}
+
+	div,
+	p {
+		width: 60ch;
+		max-width: 100%;
+	}
+
+	@media (width > 1000px) {
+		div,
+		p {
+			width: 40ch;
+			max-height: unset;
+		}
 	}
 }
 
@@ -142,7 +224,9 @@ main {
 	width: 100%;
 	pointer-events: none;
 	opacity: 1;
-	transition: opacity 500ms ease 200ms, visibility 500ms ease 200ms;
+	transition:
+		opacity 500ms ease 200ms,
+		visibility 500ms ease 200ms;
 	user-select: none;
 
 	p {
@@ -157,13 +241,16 @@ main {
 
 .show-controls {
 	position: absolute;
-	bottom: 2.5em;
+	bottom: 12.5em;
 	left: 2.5em;
 	width: 3em;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, scale 100ms ease 0ms;
+	transition:
+		opacity 500ms ease 500ms,
+		visibility 500ms ease 500ms,
+		scale 100ms ease 0ms;
 
 	&:hover {
 		scale: 1.3;
@@ -172,6 +259,10 @@ main {
 
 	svg {
 		fill: var(--accent);
+	}
+
+	@media (min-width: 1000px) {
+		bottom: 2.5em;
 	}
 }
 
@@ -189,15 +280,27 @@ main {
 	gap: 0.9rem;
 	color: var(--text-color);
 	text-transform: uppercase;
+	margin-bottom: 10rem;
+	margin-left: 1rem;
+
+	@media (min-width: 1000px) {
+		margin-bottom: 0;
+		margin-left: 0;
+	}
 }
 
 .drag {
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	bottom: 0;
+	bottom: 10rem;
 	pointer-events: auto;
 	text-transform: uppercase;
+
+
+	@media (min-width: 1000px) {
+		bottom: 0;
+	}
 }
 
 #jswarning{
