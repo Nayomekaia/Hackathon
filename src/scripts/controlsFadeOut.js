@@ -8,18 +8,14 @@ const canvas = document.querySelector("#app");
   element.addEventListener("click", () => {
     if (container) {
       container.classList.add("hide");
-      container.classList.remove("show");
       toggleControls.classList.remove("hide");
-      toggleControls.classList.add("show");
     }
   });
 });
 
 toggleControls.addEventListener("click", () => {
   if (toggleControls) {
-    toggleControls.classList.remove("show");
     toggleControls.classList.add("hide");
     container.classList.remove("hide");
-    container.classList.add("show");
   }
 });
