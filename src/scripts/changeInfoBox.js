@@ -65,13 +65,6 @@ export function updateInfobox(e) {
 	infoText.innerHTML = infoBoxData.description;
 }
 
-//  fade out bij klik van de controls
-document.addEventListener("click", () => {
-	if (container) {
-		container.classList.add("hide");
-	}
-});
-
 // function om data te matchen
 function getMatchingData(element) {
 	const itemId = element.id;

@@ -14,6 +14,7 @@ import { createStars } from "./components/objects/star.js";
 import { updateInfobox } from "./scripts/changeInfoBox.js";
 import { updateCamera } from "./scripts/updateCamera.js";
 import "./scripts/changeInfoBox.js";
+import './scripts/controlsFadeOut.js';
 
 // scene setup
 const scene = createScene();
