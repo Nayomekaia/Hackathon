@@ -114,12 +114,18 @@ main {
 	background-color: var(--background-components);
 	border-radius: var(--radius);
 	border: 1px solid var(--border-color);
+	view-transition-name: infobox;
 
 	div,
 	p {
 		margin-top: 1em;
 		width: 40ch;
 	}
+}
+
+::view-transition-group(infobox) {
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
 }
 
 .logo {
