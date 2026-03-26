@@ -56,17 +56,20 @@ function glbChildren(parts) {
     child.traverse((n) => {
       // Find the hotspots
       if (n.name && n.isMesh) {
+        console.log(n)
+
+        let meshName = n.name
 
         const hotspot = document.createElement("div");
         hotspot.className = "hotspot";
-        hotspot.setAttribute("name", n.name);
+        hotspot.setAttribute("name", meshName);
 
         // Add a tooltip element
         const tooltip = document.createElement("div");
         tooltip.className = "tooltip";
 
-        // Gebruik tooltipText uit hotspotInfo (zoals userData in de blog)
-        tooltip.innerHTML = n.userData.tooltipText;
+        // voeg name van de mesh toe aan tooltip, te zien bij hover
+        tooltip.innerHTML = meshName;
         hotspot.appendChild(tooltip);
 
         const hotspotLabel = new CSS2DObject(hotspot);

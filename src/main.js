@@ -23,6 +23,7 @@ const controls = createControls(camera, renderer);
 createLights(scene);
 
 // CSS2D Label Renderer
+// https://www.ramijames.com/learn-threejs/interaction/html-overlays-and-labels#:~:text=const%20labelRenderer%20%3D,(labelRenderer.domElement)%3B
 const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(window.innerWidth, window.innerHeight);
 labelRenderer.domElement.style.position = "absolute";
