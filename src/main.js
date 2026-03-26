@@ -10,6 +10,11 @@ import { renderLine } from './components/line/line.js';
 import { createStars } from './components/objects/star.js';
 import './scripts/changeInfoBox.js';
 
+import { 
+  initLabelRenderer, 
+  renderLabels 
+} from './components/objects/Satellite.js';
+
 
 // scene setup
 const scene = createScene();
@@ -26,7 +31,7 @@ createLights(scene);
 loadSatellite(scene);
 
 // lijn tussen satellite en info-box
-renderLine(scene);
+initLabelRenderer();
 
 // resonsive
 // add 300 stars to the scene
@@ -46,6 +51,7 @@ function animate() {
     updateControls();
 
     renderer.render(scene, camera);
+    renderLabels(scene, camera);
 }
 
 animate();

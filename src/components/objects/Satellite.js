@@ -26,6 +26,7 @@ export function loadSatellite(scene) {
 
       //voeg toe aan scene
       scene.add(glbData.scene);
+
     },
     undefined,
     (error) => {
@@ -47,7 +48,6 @@ export function rotateSatellite() {
     satellite.rotation.z += 0.0003;
   }
 }
-
 
 import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer";
 
