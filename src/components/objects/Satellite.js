@@ -79,19 +79,20 @@ export function resetSatellite() {
 }
 
 const hotspots = [
-  { name: "X-ray Instrument", x: 0.873, y: 1.67, z: 1.37 },
-  { name: "Star Tracker Module", x: -0.621, y: 0.218, z: 2.234 },
-  { name: "Dawn 4U Cubedrive", x: -1.081, y: -1.338, z: 1.571 },
-  { name: "S-Band Antenna", x: -0.923, y: -2.077, z: 0.508 },
-  { name: "Sun Sensor", x: -1.069, y: -2.069, z: -0.066 },
-  { name: "Magnetorquers", x: -1.176, y: -1.107, z: 1.678 },
-  { name: "Solar Panel", x: -0.8, y: -3.088, z: 0.978 },
+  { id: "component-1", name: "X-ray Instrument", x: 0.873, y: 1.67, z: 1.37 },
+  { id: "component-2", name: "Star Tracker Module", x: -0.621, y: 0.218, z: 2.234 },
+  { id: "component-3", name: "Dawn 4U Cubedrive", x: -1.081, y: -1.338, z: 1.571 },
+  { id: "component-4", name: "S-Band Antenna", x: -0.923, y: -2.077, z: 0.508 },
+  { id: "component-5", name: "Sun Sensor", x: -1.069, y: -2.069, z: -0.066 },
+  { id: "component-6", name: "Magnetorquers", x: -1.176, y: -1.107, z: 1.678 },
+  { id: "component-7", name: "Solar Panel", x: -0.8, y: -3.088, z: 0.978 },
 ];
 
 function glbHotspot(scene) {
   hotspots.forEach((spot) => {
     const hotspot = document.createElement("div");
     hotspot.className = "hotspot";
+    hotspot.id = spot.id;
     hotspot.setAttribute("name", spot.name);
 
     const tooltip = document.createElement("div");

@@ -1,24 +1,28 @@
-document.querySelector('form').addEventListener('change', (e) => {
+const form = document.querySelector("form");
+
+let allHotspots;
+
+// wait for hotspots to load
+setTimeout(() => {
+  allHotspots = document.querySelectorAll(".hotspot");
+}, 1000);
+
+form.addEventListener("change", (e) => {
   const selectedId = e.target.id;
-  const allHotspots = document.querySelectorAll('.hotspot');
   
-  if (selectedId === 'default') {
-    // Toon alles
-    allHotspots.forEach((el) => {
-      el.style.opacity = '1';
-      el.style.pointerEvents = 'auto';
+  // if clear selection is clicked, show all hotspots
+  if (selectedId === "default") {
+    allHotspots.forEach((spot) => {
+      spot.classList.remove("hide");
     });
-  } else {
-    // Haal index (component-1 → 0, component-2 → 1, etc.)
-    const index = parseInt(selectedId.replace('component-', '')) - 1;
-    
-    allHotspots.forEach((el, i) => {
-      if (i === index) {
-        el.style.opacity = '1';
-        el.style.pointerEvents = 'auto';
+  }
+  // hide all hotspots except the one matching the clicked input's id
+  else {
+    allHotspots.forEach((spot) => {
+      if (spot.id === selectedId) {
+        spot.classList.remove("hide");
       } else {
-        el.style.opacity = '0';
-        el.style.pointerEvents = 'none';
+        spot.classList.add("hide");
       }
     });
   }
