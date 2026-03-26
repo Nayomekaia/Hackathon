@@ -204,6 +204,7 @@ main {
 	font-size: 3rem;
 	max-width: 100%;
 	margin-bottom: 1000vh;
+	max-width: 80vw;
 	
 	span{
 		color:#EB5B33;
