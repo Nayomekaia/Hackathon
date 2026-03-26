@@ -39,6 +39,7 @@ main {
 	min-height: 0;
 	height: 100%;
 	max-height: 100vh;
+	background-color: black;
 }
 
 .component-picker {
@@ -197,4 +198,27 @@ main {
 	bottom: 0;
 	pointer-events: auto;
 	text-transform: uppercase;
+}
+
+#jswarning{
+	font-size: 3rem;
+	max-width: 100%;
+	margin-bottom: 1000vh;
+	
+	span{
+		color:#EB5B33;
+		text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -3px 0px 0 #000,
+                3px 0px 0 #000,
+                0px -3px 0 #000,
+                0px 3px 0 #000;
+		text-decoration-line: underline;
+		text-decoration-style: double;
+		font-family: "impact";
+		font-size: 4rem;
+	}
 }
