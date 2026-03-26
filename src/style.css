@@ -38,6 +38,7 @@ main {
 	min-height: 0;
 	height: 100%;
 	max-height: 100vh;
+	background-color: black;
 	font-family: "Varela Round", sans-serif;
 
 	@media (min-width: 1000px) {
@@ -296,7 +297,32 @@ main {
 	pointer-events: auto;
 	text-transform: uppercase;
 
+
 	@media (min-width: 1000px) {
 		bottom: 0;
+	}
+}
+
+#jswarning{
+	 font-size: clamp(2rem, 1.2308rem + 4.1026vw, 4rem);
+	max-width: 100%;
+	margin-bottom: 1000vh;
+	max-width: 80vw;
+	
+	span{
+		color:#EB5B33;
+		text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                -3px 0px 0 #000,
+                3px 0px 0 #000,
+                0px -3px 0 #000,
+                0px 3px 0 #000;
+		text-decoration-line: underline;
+		text-decoration-style: double;
+		font-family: "impact";
+		font-size: clamp(4rem, 3.2308rem + 4.1026vw, 6rem);
 	}
 }
