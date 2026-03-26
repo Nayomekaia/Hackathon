@@ -61,8 +61,15 @@ export function updateInfobox(e) {
 
 	if (!infoBoxData) return;
 
-	infoTitle.textContent = infoBoxData.title;
-	infoText.innerHTML = infoBoxData.description;
+	if (document.startViewTransition) {
+		document.startViewTransition(() => {
+			infoTitle.textContent = infoBoxData.title;
+			infoText.innerHTML = infoBoxData.description;
+		});
+	} else {
+		infoTitle.textContent = infoBoxData.title;
+		infoText.innerHTML = infoBoxData.description;
+	}
 }
 
 // function om data te matchen
