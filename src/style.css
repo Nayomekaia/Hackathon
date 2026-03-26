@@ -141,7 +141,6 @@ main {
 	pointer-events: none;
 	opacity: 1;
 	transition: opacity 500ms ease 200ms, visibility 500ms ease 200ms;
-
 	user-select: none;
 
 	p {

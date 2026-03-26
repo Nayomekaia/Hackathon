@@ -5,7 +5,7 @@ const canvas = document.querySelector("#app");
 
 // if there is a click event inside the component-picker or inside the canvas the the controls dissapear
 [componentPicker, canvas].forEach((element) => {
-  element.addEventListener("click", () => {
+  element.addEventListener("mousedown", () => {
     if (container) {
       container.classList.add("hide");
       toggleControls.classList.remove("hide");
