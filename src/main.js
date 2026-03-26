@@ -55,6 +55,7 @@ function animate() {
 animate();
 // main file hier word alles ingeladen en doorgegeven aan de pagina
 
+
 const inputFields = document.querySelector("form");
 
 inputFields.addEventListener("change", (e) => {
