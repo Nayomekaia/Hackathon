@@ -22,6 +22,7 @@ export function updateCamera(controls, camera, target) {
 			camera.lookAt(new THREE.Vector3(0, 0, 0));
 			controls.target.copy(new THREE.Vector3(0, 0, 0));
 			controls.update();
+	
 		})
 		.start();
 }
