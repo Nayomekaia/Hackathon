@@ -4,18 +4,22 @@ const componentPicker = document.querySelector(".component-picker");
 const canvas = document.querySelector("#app");
 
 // if there is a click event inside the component-picker or inside the canvas the the controls dissapear
-[componentPicker, canvas].forEach(el => {
-  el.addEventListener("click", () => {
+[componentPicker, canvas].forEach((element) => {
+  element.addEventListener("click", () => {
     if (container) {
       container.classList.add("hide");
+      container.classList.remove("show");
       toggleControls.classList.remove("hide");
+      toggleControls.classList.add("show");
     }
   });
 });
 
 toggleControls.addEventListener("click", () => {
   if (toggleControls) {
-    container.classList.remove("hide");
+    toggleControls.classList.remove("show");
     toggleControls.classList.add("hide");
+    container.classList.remove("hide");
+    container.classList.add("show");
   }
 });
