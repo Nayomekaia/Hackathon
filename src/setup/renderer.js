@@ -1,5 +1,3 @@
-// camera en scene omzetten naar pixels
-
 import * as THREE from 'three';
 
 export function createRenderer() {
