@@ -1,4 +1,4 @@
-// main.js
+// main.js: hier word alles ingeladen en doorgegeven aan de pagina
 import TWEEN from "three/examples/jsm/libs/tween.module.js";
 import { createScene } from "./setup/scene.js";
 import { createCamera } from "./setup/camera.js";
@@ -48,14 +48,13 @@ function animate() {
 	if (!paused) {
 		rotateSatellite();
 	}
+
 	updateControls();
 	TWEEN.update();
-
 	renderer.render(scene, camera);
 }
 
 animate();
-// main file hier word alles ingeladen en doorgegeven aan de pagina
 
 // EVENT LISTENERS
 const inputFields = document.querySelector("form");
@@ -63,23 +62,18 @@ const inputFields = document.querySelector("form");
 inputFields.addEventListener("change", (e) => {
 	resetSatellite();
 	updateInfobox(e);
-
-	if (e.target.id == "default") {
-		paused = false;
-		updateCamera(controls, camera, { x: 0, y: 0, z: 5 });
-		return;
-	}
-
 	updateCamera(controls, camera, {
 		x: e.target.dataset.x,
 		y: e.target.dataset.y,
 		z: e.target.dataset.z,
 	});
 
-	paused = true;
+	// paused becomes true when anything other than default is selected
+	paused = e.target.id !== "default";
 
 	if (inputFields.classList.contains("dropdown-shown")) {
 		inputFields.classList.remove("dropdown-shown");
+		toggleControls.classList.remove("hide");
 	}
 });
 
@@ -88,7 +82,7 @@ const toggleControls = document.querySelector(".show-controls");
 
 componentPicker.addEventListener("click", () => {
 	toggleDropdown();
-	document.getElementById("form").classList.contains("dropdown-shown")
+	inputFields.classList.contains("dropdown-shown")
 		? toggleControls.classList.add("hide")
 		: toggleControls.classList.remove("hide");
 });

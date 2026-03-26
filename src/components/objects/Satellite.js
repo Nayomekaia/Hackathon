@@ -47,27 +47,32 @@ export function rotateSatellite() {
 }
 
 export function resetSatellite() {
+	// reset the satellite to its starting position
+
 	if (satellite) {
-		let currentSatelliteRotation = {
+		// current satellite rotation
+		let startSatelliteRotation = {
 			x: satellite.rotation.x,
 			y: satellite.rotation.y,
 			z: satellite.rotation.z,
 		};
 
-		let targetSatelliteRotation = {
+		// target satellite rotation (based on values in LoadSatellite function)
+		let endSatelliteRotation = {
 			x: 0.698,
 			y: -0.611,
 			z: -0.175,
 		};
 
-		new TWEEN.Tween(currentSatelliteRotation)
-			.to(targetSatelliteRotation, 1500)
+		// transition between current rotation and target rotation
+		new TWEEN.Tween(startSatelliteRotation)
+			.to(endSatelliteRotation, 1500)
 			.easing(TWEEN.Easing.Quadratic.InOut)
 			.onUpdate(() => {
 				satellite.rotation.set(
-					currentSatelliteRotation.x,
-					currentSatelliteRotation.y,
-					currentSatelliteRotation.z,
+					startSatelliteRotation.x,
+					startSatelliteRotation.y,
+					startSatelliteRotation.z,
 				);
 			})
 			.start();
