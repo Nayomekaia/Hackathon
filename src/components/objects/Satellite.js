@@ -1,10 +1,9 @@
 // Satellite.js
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { CSS2DObject, } from "three/examples/jsm/renderers/CSS2DRenderer.js";
+import { CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 
 let satellite;
-
 
 export function loadSatellite(scene) {
   const loader = new GLTFLoader();
@@ -28,7 +27,6 @@ export function loadSatellite(scene) {
 
       //voeg toe aan scene
       scene.add(glbData.scene);
-
     },
     undefined,
     (error) => {
@@ -51,14 +49,31 @@ export function rotateSatellite() {
   }
 }
 
+const hotspotPositions = [
+  { x: 0, y: 2, z: 0 },
+  { x: 1.5, y: 0, z: 0 },
+  { x: -1, y: 1, z: 0.5 },
+  { x: 0, y: 0, z: 2 },
+  { x: 0.5, y: -1, z: 1 },
+  { x: -0.5, y: 1.5, z: -1 },
+  { x: 1, y: 0.5, z: -0.5 },
+  { x: 0, y: -0.5, z: 1.5 },
+];
+
+let meshIndex = 0;
+
 function glbChildren(parts) {
+  meshIndex = 0;
   parts.forEach((child) => {
     child.traverse((n) => {
       // Find the hotspots
       if (n.name && n.isMesh) {
-        console.log(n)
+        // console.log(n)
+        console.log(meshIndex, n.name);
 
-        let meshName = n.name
+        const pos = hotspotPositions[meshIndex] || { x: 0, y: 0, z: 0 };
+
+        let meshName = n.name;
 
         const hotspot = document.createElement("div");
         hotspot.className = "hotspot";
@@ -73,12 +88,12 @@ function glbChildren(parts) {
         hotspot.appendChild(tooltip);
 
         const hotspotLabel = new CSS2DObject(hotspot);
-        hotspotLabel.position.set(0, 0, 0);
+        hotspotLabel.position.set(pos.x, pos.y, pos.z);
         n.add(hotspotLabel);
         hotspotLabel.layers.set(0);
+
+        meshIndex++;
       }
     });
   });
 }
-
-
