@@ -16,13 +16,14 @@
   <canvas id="app"></canvas>
   <main>
     <section class="component-picker">
-      <hgroup>
+      <hgroup id="hgroup">
         <h2>Choose Component</h2>
         <p>Get more information about the component</p>
       </hgroup>
-      <form>
-        <label><input type="radio" name="component" id="default" data-x="0" data-y="0" data-z="5">Clear
-          Selection</label>
+
+      <form id="form">
+        <label><input type="radio" name="component" id="default" data-x="0" data-y="0" data-z="5">
+          Clear Selection</label>
         <label><input type="radio" name="component" id="component-1" data-x="0.873" data-y="1.670" data-z="1.370" />
           X-ray Instrument</label>
         <label><input type="radio" name="component" id="component-2" data-x="-0.621" data-y="0.218" data-z="2.234" />
@@ -33,10 +34,10 @@
           S-Band Antenna</label>
         <label><input type="radio" name="component" id="component-5" data-x="-1.069" data-y="-2.069" data-z="-0.066" />
           Sun Sensor</label>
-        <label><input type="radio" name="component" id="component-6" data-x="-1.176" data-y="-1.107" data-z="1.678" />
+        <label><input type="radio" name="component" id="component-6" data-x="-0.439" data-y="0.165" data-z="-2.281" />
           Magnetorquers</label>
-          <label><input type="radio" name="component" id="component-7" data-x="-0.800" data-y="-3.088" data-z="0.978" />
-            Solar Panel</label>
+        <label><input type="radio" name="component" id="component-7" data-x="-0.800" data-y="-3.088" data-z="0.978" />
+          Solar Panel</label>
       </form>
     </section>
 
@@ -79,10 +80,20 @@
       </section>
     </section>
 
-    <button class="show-controls hide" aria-label="Toggle contols"><svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M18 23l-1-0v-8.938c0-0.011-0.003-0.021-0.003-0.031s0.003-0.020 0.003-0.031c0-0.552-0.448-1-1-1h-2c-0.552 0-1 0.448-1 1s0.448 1 1 1h1v8h-1c-0.552 0-1 0.448-1 1s0.448 1 1 1h4c0.552 0 1-0.448 1-1s-0.448-1-1-1zM16 11c1.105 0 2-0.896 2-2s-0.895-2-2-2-2 0.896-2 2 0.896 2 2 2zM16-0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.031c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032z"></path> </g></svg></button>
+    <button class="show-controls hide" aria-label="Toggle contols"><svg viewBox="0 0 32 32" version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M18 23l-1-0v-8.938c0-0.011-0.003-0.021-0.003-0.031s0.003-0.020 0.003-0.031c0-0.552-0.448-1-1-1h-2c-0.552 0-1 0.448-1 1s0.448 1 1 1h1v8h-1c-0.552 0-1 0.448-1 1s0.448 1 1 1h4c0.552 0 1-0.448 1-1s-0.448-1-1-1zM16 11c1.105 0 2-0.896 2-2s-0.895-2-2-2-2 0.896-2 2 0.896 2 2 2zM16-0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.031c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032z">
+          </path>
+        </g>
+      </svg></button>
   </main>
 
   <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/scripts/dropdown.js"></script>
 </body>
 
 </html>

@@ -14,7 +14,8 @@ import { createStars } from "./components/objects/star.js";
 import { updateInfobox } from "./scripts/changeInfoBox.js";
 import { updateCamera } from "./scripts/updateCamera.js";
 import "./scripts/changeInfoBox.js";
-import './scripts/controlsFadeOut.js';
+import { toggleDropdown } from "./scripts/dropdown.js";
+import "./scripts/controlsFadeOut.js";
 
 // scene setup
 const scene = createScene();
@@ -55,6 +56,7 @@ function animate() {
 
 animate();
 
+// EVENT LISTENERS
 const inputFields = document.querySelector("form");
 
 inputFields.addEventListener("change", (e) => {
@@ -68,4 +70,19 @@ inputFields.addEventListener("change", (e) => {
 
 	// paused becomes true when anything other than default is selected
 	paused = e.target.id !== "default";
+
+	if (inputFields.classList.contains("dropdown-shown")) {
+		inputFields.classList.remove("dropdown-shown");
+		toggleControls.classList.remove("hide");
+	}
+});
+
+const componentPicker = document.querySelector(".component-picker");
+const toggleControls = document.querySelector(".show-controls");
+
+componentPicker.addEventListener("click", () => {
+	toggleDropdown();
+	inputFields.classList.contains("dropdown-shown")
+		? toggleControls.classList.add("hide")
+		: toggleControls.classList.remove("hide");
 });
