@@ -25,7 +25,8 @@ export function loadSatellite(scene) {
       satellite.rotation.z = THREE.MathUtils.degToRad(-10);
 
       // voeg hotspots toe aan satellite
-      glbHotspot(glbData.scene.children);
+      // glbHotspot(glbData.scene.children);
+      glbHotspot(satellite);
 
       //voeg toe aan scene
       scene.add(glbData.scene);
@@ -79,49 +80,67 @@ export function resetSatellite() {
   }
 }
 
-const hotspotPositions = [
-  { x: 0, y: 2, z: 0 },
-  { x: 1.5, y: 0, z: 0 },
-  { x: -1, y: 1, z: 0.5 },
-  { x: 0, y: 0, z: 2 },
-  { x: 0.5, y: -1, z: 1 },
-  { x: -0.5, y: 1.5, z: -1 },
-  { x: 1, y: 0.5, z: -0.5 },
-  { x: 0, y: -0.5, z: 1.5 },
+const hotspots = [
+  { name: "X-ray Instrument", x: 0.873, y: 1.67, z: 1.37 },
+  { name: "Star Tracker Module", x: -0.621, y: 0.218, z: 2.234 },
+  { name: "Dawn 4U Cubedrive", x: -1.081, y: -1.338, z: 1.571 },
+  { name: "S-Band Antenna", x: -0.923, y: -2.077, z: 0.508 },
+  { name: "Sun Sensor", x: -1.069, y: -2.069, z: -0.066 },
+  { name: "Magnetorquers", x: -1.176, y: -1.107, z: 1.678 },
+  { name: "Solar Panel", x: -0.8, y: -3.088, z: 0.978 },
 ];
 
-function glbHotspot(parts) {
-  meshIndex = 0;
-  parts.forEach((child) => {
-    child.traverse((n) => {
-      // Find the hotspots
-      if (n.name && n.isMesh) {
-        // console.log(n)
-        console.log(meshIndex, n.name);
+function glbHotspot(scene) {
+  hotspots.forEach((spot) => {
+    const hotspot = document.createElement("div");
+    hotspot.className = "hotspot";
+    hotspot.setAttribute("name", spot.name);
 
-        const pos = hotspotPositions[meshIndex] || { x: 0, y: 0, z: 0 };
+    const tooltip = document.createElement("div");
+    tooltip.className = "tooltip";
+    tooltip.innerHTML = spot.name;
+    hotspot.appendChild(tooltip);
 
-        let meshName = n.name;
+    const hotspotLabel = new CSS2DObject(hotspot);
+    hotspotLabel.position.set(spot.x, spot.y, spot.z);
 
-        const hotspot = document.createElement("div");
-        hotspot.className = "hotspot";
-        hotspot.setAttribute("name", meshName);
-
-        // Add a tooltip element
-        const tooltip = document.createElement("div");
-        tooltip.className = "tooltip";
-
-        // voeg name van de mesh toe aan tooltip, te zien bij hover
-        tooltip.innerHTML = meshName;
-        hotspot.appendChild(tooltip);
-
-        const hotspotLabel = new CSS2DObject(hotspot);
-        hotspotLabel.position.set(pos.x, pos.y, pos.z);
-        n.add(hotspotLabel);
-        hotspotLabel.layers.set(0);
-
-        meshIndex++;
-      }
-    });
+    // Voeg toe aan scene (of aan satellite als je wilt dat ze meedraaien)
+    scene.add(hotspotLabel);
   });
 }
+
+// function glbHotspot(parts) {
+//   meshIndex = 0;
+//   parts.forEach((child) => {
+//     child.traverse((n) => {
+//       // Find the hotspots
+//       if (n.name && n.isMesh) {
+//         // console.log(n)
+//         console.log(meshIndex, n.name);
+
+//         const spot = hotspots[meshIndex] || { x: 0, y: 0, z: 0 };
+
+//         let meshName = spot.name;
+
+//         const hotspot = document.createElement("div");
+//         hotspot.className = "hotspot";
+//         hotspot.setAttribute("name", meshName);
+
+//         // Add a tooltip element
+//         const tooltip = document.createElement("div");
+//         tooltip.className = "tooltip";
+
+//         // voeg name van de mesh toe aan tooltip, te zien bij hover
+//         tooltip.innerHTML = meshName;
+//         hotspot.appendChild(tooltip);
+
+//         const hotspotLabel = new CSS2DObject(hotspot);
+//         hotspotLabel.position.set(spot.x, spot.y, spot.z);
+//         n.add(hotspotLabel);
+//         hotspotLabel.layers.set(0);
+
+//         meshIndex++;
+//       }
+//     });
+//   });
+// }
