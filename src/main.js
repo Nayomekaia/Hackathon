@@ -5,9 +5,9 @@ import { createCamera } from './setup/camera.js';
 import { createRenderer } from './setup/renderer.js';
 import { createControls, updateControls } from './setup/controls.js';
 import { createLights } from './components/lights/lights.js';
-import { loadSatellite, rotateSatellite, initLabelRenderer, renderLabels } from './components/objects/Satellite.js';
-import { renderLine } from './components/line/line.js';
+import { loadSatellite, rotateSatellite } from './components/objects/Satellite.js';
 import { createStars } from './components/objects/star.js';
+import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 import './scripts/changeInfoBox.js';
 
 
@@ -22,11 +22,16 @@ const controls = createControls(camera, renderer);
 // licht toevoegen
 createLights(scene);
 
-// laad satellite
-loadSatellite(scene);
+// CSS2D Label Renderer
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = "absolute";
+labelRenderer.domElement.style.top = "0";
+labelRenderer.domElement.style.pointerEvents = "none";
+document.body.appendChild(labelRenderer.domElement);
 
-// lijn tussen satellite en info-box
-initLabelRenderer();
+// laad satellite in
+loadSatellite(scene);
 
 // resonsive
 // add 300 stars to the scene
@@ -46,7 +51,7 @@ function animate() {
     updateControls();
 
     renderer.render(scene, camera);
-    renderLabels(scene, camera);
+    labelRenderer.render(scene, camera);
 }
 
 animate();

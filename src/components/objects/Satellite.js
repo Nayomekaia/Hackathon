@@ -1,8 +1,10 @@
 // Satellite.js
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { CSS2DObject, } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 
 let satellite;
+
 
 export function loadSatellite(scene) {
   const loader = new GLTFLoader();
@@ -21,14 +23,11 @@ export function loadSatellite(scene) {
       satellite.rotation.y = THREE.MathUtils.degToRad(-35);
       satellite.rotation.z = THREE.MathUtils.degToRad(-10);
 
-      // console.log(glbData.scene.children);
+      // voeg hotspots toe aan satellite
       glbChildren(glbData.scene.children);
 
       //voeg toe aan scene
       scene.add(glbData.scene);
-
-      // voeg hotspots toe
-      // addHotspots(glbData.scene);
 
     },
     undefined,
@@ -52,50 +51,11 @@ export function rotateSatellite() {
   }
 }
 
-import { CSS2DRenderer, CSS2DObject, } from "three/examples/jsm/renderers/CSS2DRenderer.js";
-
-let labelRenderer;
-
-// Roep dit EENMALIG aan bij setup
-export function initLabelRenderer() {
-  labelRenderer = new CSS2DRenderer();
-  labelRenderer.setSize(window.innerWidth, window.innerHeight);
-  labelRenderer.domElement.style.position = "absolute";
-  labelRenderer.domElement.style.top = "0";
-  labelRenderer.domElement.style.pointerEvents = "none";
-  document.body.appendChild(labelRenderer.domElement);
-
-  window.addEventListener("resize", () => {
-    labelRenderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  return labelRenderer;
-}
-
-export function renderLabels(scene, camera) {
-  if (labelRenderer) {
-    labelRenderer.render(scene, camera);
-  }
-}
-
-const hotspotInfo = {
-  Propulsion_Module: {
-    tooltipText: "Zorgt voor de voortstuwing van de satelliet",
-  },
-  Star_Tracker_Module: {
-    tooltipText: "Navigeert aan de hand van sterrenposities",
-  },
-  Star_Tracker_Module_Bracket: {
-    tooltipText: "Bevestiging voor de star tracker",
-  },
-};
-
 function glbChildren(parts) {
   parts.forEach((child) => {
     child.traverse((n) => {
-      // Alleen hotspots toevoegen voor meshes in hotspotInfo
-      if (n.name && n.isMesh && hotspotInfo[n.name]) {
-        const info = hotspotInfo[n.name];
+      // Find the hotspots
+      if (n.name && n.isMesh) {
 
         const hotspot = document.createElement("div");
         hotspot.className = "hotspot";
@@ -106,7 +66,7 @@ function glbChildren(parts) {
         tooltip.className = "tooltip";
 
         // Gebruik tooltipText uit hotspotInfo (zoals userData in de blog)
-        tooltip.innerHTML = info.tooltipText;
+        tooltip.innerHTML = n.userData.tooltipText;
         hotspot.appendChild(tooltip);
 
         const hotspotLabel = new CSS2DObject(hotspot);
