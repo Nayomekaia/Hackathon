@@ -13,6 +13,27 @@ export function loadSatellite(scene) {
 		function (glbData) {
 			satellite = glbData.scene;
 
+			// normal map laden
+			const textureLoader = new THREE.TextureLoader();
+			const normalTexture = textureLoader.load("/textures/normal.jpg"); // kleur
+			const roughTexture = textureLoader.load("/textures/roughness.jpg"); // roughness map
+
+			satellite.traverse((child) => {
+				if (child.isMesh) {
+					const oldMaterial = child.material;
+
+					child.material = new THREE.MeshStandardMaterial({
+						map: oldMaterial.map || null,        // kleur 
+						normalMap: normalTexture,            // oppervlak structuur
+						roughnessMap: roughTexture,          // glans textuur
+						metalness: 1.0,                      // volledig metaal
+						roughness: 0.1,                       // basis glans
+						envMapIntensity: 3,
+						color: 0xffffff
+					});
+				}
+			});
+
 			// positie en schaal
 			satellite.position.set(0, 0, 0);
 			satellite.scale.set(0.1, 0.1, 0.1);
