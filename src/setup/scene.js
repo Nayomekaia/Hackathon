@@ -1,14 +1,22 @@
-// maakt de scene oftewel 3d wereld waar alles in zit 
 import * as THREE from 'three';
 
-export function createScene() {
+export function createScene(renderer) {
     const scene = new THREE.Scene();
-
-
     const loader = new THREE.TextureLoader();
+
     loader.load('/galaxy.jpg', (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = texture;
+        texture.colorSpace = THREE.SRGBColorSpace;
+
+        const geometry = new THREE.SphereGeometry(60, 74, 64);
+
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.BackSide,
+            color: new THREE.Color(4.5, 4.5, 4.5) 
+        });
+
+        const sky = new THREE.Mesh(geometry, material);
+        scene.add(sky);
     });
 
     return scene;

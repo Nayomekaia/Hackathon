@@ -15,6 +15,7 @@ import { updateInfobox } from "./scripts/changeInfoBox.js";
 import { updateCamera } from "./scripts/updateCamera.js";
 import "./scripts/changeInfoBox.js";
 import { toggleDropdown } from "./scripts/dropdown.js";
+import "./scripts/controlsFadeOut.js";
 
 // scene setup
 const scene = createScene();
@@ -83,7 +84,11 @@ inputFields.addEventListener("change", (e) => {
 });
 
 const componentPicker = document.querySelector(".component-picker");
+const toggleControls = document.querySelector(".show-controls");
 
 componentPicker.addEventListener("click", () => {
 	toggleDropdown();
+	document.getElementById("form").classList.contains("dropdown-shown")
+		? toggleControls.classList.add("hide")
+		: toggleControls.classList.remove("hide");
 });
