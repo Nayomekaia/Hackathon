@@ -59,14 +59,15 @@ animate();
 const inputFields = document.querySelector("form");
 
 inputFields.addEventListener("change", (e) => {
-	if (e.target.id == "clear") {
+	resetSatellite();
+	updateInfobox(e);
+
+	if (e.target.id == "default") {
 		paused = false;
-		resetSatellite();
 		updateCamera(controls, camera, { x: 0, y: 0, z: 5 });
 		return;
 	}
-	resetSatellite();
-	updateInfobox(e);
+
 	updateCamera(controls, camera, {
 		x: e.target.dataset.x,
 		y: e.target.dataset.y,
